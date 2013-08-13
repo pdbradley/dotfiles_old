@@ -1,0 +1,84 @@
+let mapleader = " "
+
+" hopefully this will save buffers when I switch out of them
+set autowrite
+
+" Customizations
+set relativenumber
+set nocompatible
+set ruler
+set showcmd
+set incsearch
+set laststatus=2 " always show status line
+set guioptions-=m       " Can't remember :)
+set guioptions-=T       " No toolbars
+set guioptions-=r       " No scrollbars
+
+set visualbell t_vb=    " Don't beep
+
+set hidden              " Don't prompt to save when switching buffers
+
+filetype plugin indent on
+
+" Snippets are activated by Shift+Tab
+let g:snippetsEmu_key = "<S-Tab>"
+
+" Switch between the last two files
+nnoremap <leader><leader> <c-^>
+
+" My Custom Mappings
+map <c-b> :CtrlPBuffer<CR>
+
+" might as well do the same for swap files
+set directory=~/tmp/vim-swap//
+
+" might as well do the same for and backups
+set backupdir=~/tmp/vim-backup//
+
+"these two lines help w search.  case ignored unless search string has
+"uppercase anywhere
+set ignorecase
+set smartcase
+
+"highlight current line
+colorscheme desert
+set cursorline
+"hi CursorLine term=bold cterm=bold guibg=Grey40
+hi CursorLine term=bold guibg=#222222 guibg=Grey40
+
+" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
+
+augroup CursorLineOnlyInActiveWindow
+  autocmd!
+  autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  autocmd WinLeave * setlocal nocursorline
+augroup END
+
+"get out of insert mode with a super seldom used character sequence
+inoremap jj <ESC>
+
+
+"map <leader>w to open a new vsplit and switch to it
+nnoremap <leader>w <C-w>v<C-w>l
+
+"get to Ack quickly with leader a
+nnoremap <leader>a :Ack
+
+nnoremap <leader>n :NERDTreeToggle<CR>
+
+"move around your splits with ctrl hjkl which b/c capslock is assigned to ctrl
+"works well
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+"tslime bindings
+vmap <C-c><C-c> <Plug>SendSelectionToTmux
+nmap <C-c><C-c> <Plug>NormalModeSendToTmux
+nmap <C-c>r <Plug>SetTmuxVars
+
+au BufReadPost *.dwt set syntax=html
+
