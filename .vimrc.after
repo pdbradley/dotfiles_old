@@ -50,6 +50,9 @@ hi CursorLine term=bold guibg=#222222 guibg=Grey40
 set splitbelow
 set splitright
 
+"make a little 5 line padding at top and bottom when scrolling
+set scrolloff=5
+
 augroup CursorLineOnlyInActiveWindow
   autocmd!
   autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
