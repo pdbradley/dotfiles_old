@@ -29,12 +29,6 @@ nnoremap <leader><leader> <c-^>
 " My Custom Mappings
 map <c-b> :CtrlPBuffer<CR>
 
-" might as well do the same for swap files
-set directory=~/tmp/vim-swap//
-
-" might as well do the same for and backups
-set backupdir=~/tmp/vim-backup//
-
 "these two lines help w search.  case ignored unless search string has
 "uppercase anywhere
 set ignorecase
