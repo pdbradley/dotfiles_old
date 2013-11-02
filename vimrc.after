@@ -79,3 +79,8 @@ nmap <C-c>r <Plug>SetTmuxVars
 
 au BufReadPost *.dwt set syntax=html
 
+"no backups since we are always in git (almost)
+set nobackup
+set nowritebackup
+set noswapfile
+
