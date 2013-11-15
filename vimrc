@@ -1,7 +1,47 @@
+set nocompatible 
+filetype off
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+"Let Vundle manage Vundle
+"required
+Bundle 'gmarik/vundle'
+
+"my bundles here:
+Bundle 'tpope/vim-fugitive'
+Bundle 'thoughtbot/vim-rspec'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'tpope/vim-rails.git'
+Bundle 'scrooloose/nerdtree.git'
+Bundle 'mileszs/ack.vim'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'kien/ctrlp.vim'
+Bundle 'vim-scripts/ZoomWin'
+Bundle 'scrooloose/syntastic'
+Bundle 'kikijump/tslime.vim'
+
+
+filetype plugin indent on  "required!
+
+"Rspec.vim mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+
 let mapleader = " "
 
 " hopefully this will save buffers when I switch out of them
 set autowrite
+
+"indentation matters...
+set autoindent
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+
+" syntax highlighting
+syntax on 
 
 " Customizations
 set relativenumber
@@ -18,13 +58,15 @@ set visualbell t_vb=    " Don't beep
 
 set hidden              " Don't prompt to save when switching buffers
 
-filetype plugin indent on
 
 " Snippets are activated by Shift+Tab
 let g:snippetsEmu_key = "<S-Tab>"
 
 " Switch between the last two files
-nnoremap <leader><leader> <c-^>
+nnoremap <leader>b <c-^>
+
+"map zoomwin to leader z
+nnoremap <leader>z :ZoomWin<CR>
 
 " My Custom Mappings
 map <c-b> :CtrlPBuffer<CR>
@@ -83,4 +125,12 @@ au BufReadPost *.dwt set syntax=html
 set nobackup
 set nowritebackup
 set noswapfile
+
+"tell omni that I like rails
+let g:rubycomplete_rails = 1
+
+
+"omni completion activate!
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
 
