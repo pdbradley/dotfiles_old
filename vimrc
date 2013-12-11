@@ -20,6 +20,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'vim-scripts/ZoomWin'
 Bundle 'scrooloose/syntastic'
 Bundle 'kikijump/tslime.vim'
+Bundle 'mileszs/ack.vim'
 
 
 filetype plugin indent on  "required!
@@ -44,7 +45,7 @@ set softtabstop=2
 syntax on 
 
 " Customizations
-set relativenumber
+" set relativenumber
 set nocompatible
 set ruler
 set showcmd
@@ -68,8 +69,16 @@ nnoremap <leader>b <c-^>
 "map zoomwin to leader z
 nnoremap <leader>z :ZoomWin<CR>
 
-" My Custom Mappings
+" My Custom Mappings related to ctrl-p
 map <c-b> :CtrlPBuffer<CR>
+" copied the idea for this from gary bernhardts vimrc
+map <leader>gv :CtrlP app/views<cr>
+map <leader>gc :CtrlP app/controllers<cr>
+map <leader>gm :CtrlP app/models<cr>
+map <leader>gh :CtrlPT app/helpers<cr>
+map <leader>gl :CtrlP lib<cr>
+map <leader>gp :CtrlP public<cr>
+map <leader>gs :CtrlP public/stylesheets<cr>
 
 "these two lines help w search.  case ignored unless search string has
 "uppercase anywhere
