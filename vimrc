@@ -15,12 +15,16 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-rails.git'
 Bundle 'scrooloose/nerdtree.git'
 Bundle 'mileszs/ack.vim'
-Bundle 'Valloric/YouCompleteMe'
+"Bundle 'Valloric/YouCompleteMe'
 Bundle 'kien/ctrlp.vim'
 Bundle 'vim-scripts/ZoomWin'
 Bundle 'scrooloose/syntastic'
 Bundle 'kikijump/tslime.vim'
 Bundle 'mileszs/ack.vim'
+Bundle 'kana/vim-fakeclip'
+
+"fakeclip settings
+let g:fakeclip_terminal_multiplexer_type = 'tmux'
 
 
 filetype plugin indent on  "required!
@@ -31,6 +35,13 @@ map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 
 let mapleader = " "
+
+"lets try folding on for size?...nope
+"set foldmethod=syntax
+"easier fold and unfold
+"nnoremap <leader>f za
+"disable folding by default
+"set nofoldenable
 
 " hopefully this will save buffers when I switch out of them
 set autowrite
@@ -46,6 +57,7 @@ syntax on
 
 " Customizations
 " set relativenumber
+set number
 set nocompatible
 set ruler
 set showcmd
@@ -142,4 +154,5 @@ let g:rubycomplete_rails = 1
 "omni completion activate!
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
+
 
