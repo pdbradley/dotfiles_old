@@ -20,7 +20,6 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'vim-scripts/ZoomWin'
 Bundle 'scrooloose/syntastic'
 Bundle 'kikijump/tslime.vim'
-Bundle 'mileszs/ack.vim'
 Bundle 'kana/vim-fakeclip'
 
 "fakeclip settings
@@ -41,7 +40,7 @@ let mapleader = " "
 "easier fold and unfold
 "nnoremap <leader>f za
 "disable folding by default
-"set nofoldenable
+set nofoldenable
 
 " hopefully this will save buffers when I switch out of them
 set autowrite
@@ -125,6 +124,9 @@ nnoremap <leader>w <C-w>v<C-w>l
 
 "get to Ack quickly with leader a
 nnoremap <leader>a :Ack
+"use ag instead of ack with ack.vim; -i means case insensitive
+"
+let g:ackprg = 'ag -i --nogroup --nocolor --column --ignore-dir log --ignore-dir versions'
 
 nnoremap <leader>n :NERDTreeToggle<CR>
 
