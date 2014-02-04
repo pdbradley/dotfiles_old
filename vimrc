@@ -167,6 +167,7 @@ set noesckeys
 
 "map <leader>w to open a new vsplit and switch to it
 nnoremap <leader>w <C-w>v<C-w>l
+nnoremap <leader>h <C-w>s<C-w>j
 
 "get to Ack quickly with leader a
 nnoremap <leader>a :Ack
