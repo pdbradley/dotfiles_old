@@ -203,5 +203,6 @@ let g:rubycomplete_rails = 1
 "omni completion activate!
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
+runtime macros/matchit.vim
 
 
