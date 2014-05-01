@@ -9,7 +9,6 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 "my bundles here:
-Bundle 'ervandew/supertab'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-endwise'
@@ -26,6 +25,13 @@ Bundle 'vim-scripts/ZoomWin'
 Bundle 'scrooloose/syntastic'
 Bundle 'kikijump/tslime.vim'
 Bundle 'kana/vim-fakeclip'
+
+"all this stuff below is for snippets
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'tomtom/tlib_vim'
+Bundle 'garbas/vim-snipmate'
+Bundle 'honza/vim-snippets'
+set runtimepath+=~/.vim/bundle/vim-snippets
 
 "fakeclip settings
 let g:fakeclip_terminal_multiplexer_type = 'tmux'
