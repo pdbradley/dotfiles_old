@@ -1,5 +1,12 @@
 set nocompatible 
 filetype off
+let mapleader = " "
+
+set backspace=2
+"no backups since we are always in git (almost)
+set nobackup
+set nowritebackup
+set noswapfile
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -15,6 +22,7 @@ Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-surround'
 
 Bundle 'thoughtbot/vim-rspec'
+Bundle 'jgdavey/tslime.vim'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-rails.git'
 Bundle 'scrooloose/nerdtree.git'
@@ -23,7 +31,6 @@ Bundle 'mileszs/ack.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'vim-scripts/ZoomWin'
 Bundle 'scrooloose/syntastic'
-Bundle 'kikijump/tslime.vim'
 Bundle 'kana/vim-fakeclip'
 
 "all this stuff below is for snippets
@@ -39,18 +46,18 @@ let g:fakeclip_terminal_multiplexer_type = 'tmux'
 
 filetype plugin indent on  "required!
 
+
 "Rspec.vim mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
+map <Leader>* :call RunAllSpecs()<CR>
+let g:rspec_command = 'call Send_to_Tmux("!rspec {spec}\n")'
 
-let mapleader = " "
 
 "disable folding by default
 set nofoldenable
 
-" hopefully this will save buffers when I switch out of them
-set autowrite
 
 "tabs
 map <C-t> <esc>:tabnew<CR>
@@ -71,19 +78,22 @@ set relativenumber
 "set number
 set nocompatible
 set showmatch
-set ruler
-set showcmd
+set ruler "show cursor position all the time
+set showcmd "display incomplete commands
+set autowrite " hopefully this will save buffers when I switch out of them
+set laststatus=2 " always show status line
 set smarttab
 set noincsearch
 set incsearch
-set laststatus=2 " always show status line
 set guioptions-=m       " Can't remember :)
 set guioptions-=T       " No toolbars
 set guioptions-=r       " No scrollbars
-
 set visualbell t_vb=    " Don't beep
-
 set hidden              " Don't prompt to save when switching buffers
+
+"Display extra whitespace
+set list listchars=tab:»·,trail:·
+
 
 
 " Snippets are activated by Shift+Tab
@@ -138,6 +148,8 @@ set bg=light
 
 "highlight current line
 colorscheme desert
+highlight NonText guibg=#060606
+
 set cursorline
 "hi CursorLine term=bold cterm=bold guibg=Grey40
 hi CursorLine term=bold guibg=#222222 guibg=Grey40
@@ -177,8 +189,16 @@ nnoremap <leader>h <C-w>s<C-w>j
 
 "get to Ack quickly with leader a
 nnoremap <leader>a :Ack
+
 "use ag instead of ack with ack.vim; -i means case insensitive
-"
+if executable('ag')
+    set grepprg=ag\ --nogroup\ --nocolor
+    " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+    " ag is fast enough that CtrlP doesn't need to cache
+    let g:ctrlp_use_caching = 0
+endif
+
 let g:ackprg = 'ag -i --nogroup --nocolor --column --ignore-dir log --ignore-dir versions'
 
 nnoremap <leader>n :NERDTreeToggle<CR>
@@ -197,10 +217,6 @@ nmap <C-c>r <Plug>SetTmuxVars
 
 au BufReadPost *.dwt set syntax=html
 
-"no backups since we are always in git (almost)
-set nobackup
-set nowritebackup
-set noswapfile
 
 "tell omni that I like rails
 let g:rubycomplete_rails = 1
