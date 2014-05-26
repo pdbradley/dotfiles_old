@@ -22,12 +22,14 @@ Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-surround'
 
 Bundle 'thoughtbot/vim-rspec'
-Bundle 'jgdavey/tslime.vim'
+Bundle 'benmills/vimux'
+Bundle 'christoomey/vim-tmux-navigator'
+
+
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-rails.git'
 Bundle 'scrooloose/nerdtree.git'
 Bundle 'mileszs/ack.vim'
-"Bundle 'Valloric/YouCompleteMe'
 Bundle 'kien/ctrlp.vim'
 Bundle 'vim-scripts/ZoomWin'
 Bundle 'scrooloose/syntastic'
@@ -52,12 +54,10 @@ map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>* :call RunAllSpecs()<CR>
-let g:rspec_command = 'call Send_to_Tmux("!rspec {spec}\n")'
-
+let g:rspec_command = 'call VimuxRunCommand("bundle exec rspec {spec}\n")'
 
 "disable folding by default
 set nofoldenable
-
 
 "tabs
 map <C-t> <esc>:tabnew<CR>
@@ -94,8 +94,6 @@ set hidden              " Don't prompt to save when switching buffers
 "Display extra whitespace
 set list listchars=tab:»·,trail:·
 
-
-
 " Snippets are activated by Shift+Tab
 let g:snippetsEmu_key = "<S-Tab>"
 
@@ -106,7 +104,6 @@ nnoremap <leader>b <c-^>
 nnoremap <leader>z :ZoomWin<CR>
 
 " My Custom Mappings related to ctrl-p
-map <c-b> :CtrlPBuffer<CR>
 " copied the idea for this from gary bernhardts vimrc
 map <leader>gv :CtrlP app/views<cr>
 map <leader>gf :CtrlP spec/factories<cr>
@@ -114,8 +111,6 @@ map <leader>gc :CtrlP app/controllers<cr>
 map <leader>gm :CtrlP app/models<cr>
 map <leader>gh :CtrlPT app/helpers<cr>
 map <leader>gl :CtrlP lib<cr>
-map <leader>gp :CtrlP public<cr>
-map <leader>gs :CtrlP public/stylesheets<cr>
 
 "rails vim quicker mappings
 map <Leader>c :Rcontroller 
@@ -179,9 +174,6 @@ inoremap jj <ESC>
 "no delay when hitting esc
 set noesckeys
 
-"omnicomplete text more readable
-:highlight PmenuSel ctermfg=black
-
 
 "map <leader>w to open a new vsplit and switch to it
 nnoremap <leader>w <C-w>v<C-w>l
@@ -210,21 +202,5 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-"tslime bindings
-vmap <C-c><C-c> <Plug>SendSelectionToTmux
-nmap <C-c><C-c> <Plug>NormalModeSendToTmux
-nmap <C-c>r <Plug>SetTmuxVars
-
 au BufReadPost *.dwt set syntax=html
-
-
-"tell omni that I like rails
-let g:rubycomplete_rails = 1
-
-
-"omni completion activate!
-filetype plugin on
-set omnifunc=syntaxcomplete#Complete
-runtime macros/matchit.vim
-
 
