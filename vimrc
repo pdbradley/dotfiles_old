@@ -2,6 +2,8 @@ set nocompatible
 filetype off
 let mapleader = " "
 
+
+
 set backspace=2
 "no backups since we are always in git (almost)
 set nobackup
@@ -20,6 +22,8 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-surround'
+Bundle 'kana/vim-textobj-user'
+Bundle 'nelstrom/vim-textobj-rubyblock'
 
 Bundle 'thoughtbot/vim-rspec'
 Bundle 'benmills/vimux'
@@ -204,3 +208,8 @@ nnoremap <C-l> <C-w>l
 
 au BufReadPost *.dwt set syntax=html
 
+"pbcopy shortcuts to get to system clipboard
+vmap <C-x> :!pbcopy<CR>
+vmap <C-c> :w !pbcopy<CR><CR>
+
+runtime macros/matchit.vim
