@@ -49,7 +49,6 @@ set runtimepath+=~/.vim/bundle/vim-snippets
 "fakeclip settings
 let g:fakeclip_terminal_multiplexer_type = 'tmux'
 
-
 filetype plugin indent on  "required!
 
 
@@ -211,9 +210,13 @@ au BufReadPost *.dwt set syntax=html
 "pbcopy shortcuts to get to system clipboard
 vmap <C-x> :!pbcopy<CR>
 vmap <C-c> :w !pbcopy<CR><CR>
+" use the system clipboard
+set clipboard=unnamed
 
 "stop autocommenting of the next line under a comment
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
+"better instapaste (thanks orenstein!)
+map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
 
 runtime macros/matchit.vim
