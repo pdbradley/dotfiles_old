@@ -212,4 +212,8 @@ au BufReadPost *.dwt set syntax=html
 vmap <C-x> :!pbcopy<CR>
 vmap <C-c> :w !pbcopy<CR><CR>
 
+"stop autocommenting of the next line under a comment
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+
 runtime macros/matchit.vim
