@@ -30,7 +30,7 @@ Bundle 'benmills/vimux'
 Bundle 'christoomey/vim-tmux-navigator'
 
 
-Bundle 'Lokaltog/vim-easymotion'
+Bundle 'justinmk/vim-sneak'
 Bundle 'tpope/vim-rails.git'
 Bundle 'scrooloose/nerdtree.git'
 Bundle 'mileszs/ack.vim'
