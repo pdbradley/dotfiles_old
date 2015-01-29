@@ -19,6 +19,7 @@ Bundle 'gmarik/vundle'
 
 "my bundles here:
 Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-dispatch'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-surround'
@@ -28,6 +29,7 @@ Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'thoughtbot/vim-rspec'
 Bundle 'benmills/vimux'
 Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'scrooloose/nerdcommenter.git'
 
 
 Bundle 'justinmk/vim-sneak'
@@ -101,7 +103,7 @@ set list listchars=tab:»·,trail:·
 let g:snippetsEmu_key = "<S-Tab>"
 
 " Switch between the last two files
-nnoremap <leader>b <c-^>
+nnoremap <leader><leader> <c-^>
 
 "map zoomwin to leader z
 nnoremap <leader>z :ZoomWin<CR>
