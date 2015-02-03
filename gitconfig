@@ -1,0 +1,20 @@
+[user]
+   name = Philip Bradley
+   email = pdbradley@gmail.com
+[core]
+  autocrlf = input
+  safecrlf = true
+  excludesfile = /Users/philip/.gitignore_global
+[color]
+  ui = auto
+[alias]
+  co = checkout
+  aa = add --all
+  ap = add --patch
+  ca = commit --amend
+  ci = commit -v
+  co = checkout
+  st = status
+  up = !git fetch origin && git rebase origin/master
+  prunelocal = !sh -c 'git branch --merged | grep -v master | xargs -n 1 git branch -d'
+  pruneremote = remote prune origin
