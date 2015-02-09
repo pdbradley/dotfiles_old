@@ -2,6 +2,8 @@ set nocompatible
 filetype off
 let mapleader = " "
 
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
 
 
 set backspace=2
@@ -26,6 +28,9 @@ Bundle 'tpope/vim-surround'
 Bundle 'kana/vim-textobj-user'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 
+Bundle 'xolox/vim-misc'
+Bundle 'xolox/vim-easytags'
+
 Bundle 'thoughtbot/vim-rspec'
 Bundle 'benmills/vimux'
 Bundle 'christoomey/vim-tmux-navigator'
@@ -44,8 +49,8 @@ Bundle 'kana/vim-fakeclip'
 "all this stuff below is for snippets
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
-Bundle 'garbas/vim-snipmate'
-Bundle 'honza/vim-snippets'
+
+
 set runtimepath+=~/.vim/bundle/vim-snippets
 
 "fakeclip settings
@@ -220,5 +225,16 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 "better instapaste (thanks orenstein!)
 map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
+
+"grab into system clipboard
+map <leader>y "*y
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" OPEN FILES IN DIRECTORY OF CURRENT FILE  thanks bernhardt
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+cnoremap <expr> %% expand('%:h').'/'
+map <leader>e :edit %%
+map <leader>v :view %%
 
 runtime macros/matchit.vim
