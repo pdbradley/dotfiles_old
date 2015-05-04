@@ -65,7 +65,7 @@ map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>* :call RunAllSpecs()<CR>
 "let g:rspec_command = 'call VimuxRunCommand("bundle exec rspec {spec}\n")'
-let g:rspec_command = 'call VimuxRunCommand("bundle exec rspec --format progress --require ~/code/support/vim_formatter.rb --format VimFormatter --out quickfix.out {spec}\n")'
+let g:rspec_command = 'call VimuxRunCommand("bundle exec rspec --format progress --require ~/code/rspec_support/vim_formatter.rb --format VimFormatter --out quickfix.out {spec}\n")'
 " opens the quickfix file and window
 :map <leader>q :cg quickfix.out \| cwindow<CR>
 
