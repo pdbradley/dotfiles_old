@@ -127,10 +127,10 @@ map <leader>gl :CtrlP lib<cr>
 
 "rails vim quicker mappings
 map <Leader>c :Rcontroller 
-map <Leader>sc :RScontroller 
+"map <Leader>sc :RScontroller 
 map <Leader>vc :RVcontroller 
 map <Leader>m :Rmodel 
-map <Leader>sm :RSmodel 
+"map <Leader>sm :RSmodel 
 map <Leader>vm :RVmodel 
 
 map <Leader>bb :!bundle install<cr>
@@ -141,7 +141,7 @@ map <Leader>gs :Gstatus<CR>
 "quick open for Dropbox and notes files
 map <Leader>dr :e ~/Dropbox<cr>
 map <Leader>pn :sp ~/Dropbox/work/notes/project-notes.txt<cr>
-map <Leader>ann :sp ~/Dropbox/work/notes/annoyances-notes.txt<cr>
+map <Leader>noy :sp ~/Dropbox/work/notes/annoyances-notes.txt<cr>
 map <Leader>td :sp ~/Dropbox/work/notes/todo.txt<cr>
 
 
