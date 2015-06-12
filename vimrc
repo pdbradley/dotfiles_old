@@ -1,8 +1,5 @@
 set nocompatible 
-filetype off
 let mapleader = " "
-
-filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 
 
@@ -34,6 +31,7 @@ Bundle 'xolox/vim-easytags'
 Bundle 'thoughtbot/vim-rspec'
 Bundle 'benmills/vimux'
 Bundle 'christoomey/vim-tmux-navigator'
+"Bundle 'christoomey/vim-tmux-runner'
 Bundle 'scrooloose/nerdcommenter.git'
 
 
@@ -45,11 +43,14 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'vim-scripts/ZoomWin'
 Bundle 'scrooloose/syntastic'
 Bundle 'kana/vim-fakeclip'
+Bundle 'kchmck/vim-coffee-script'
 
 "all this stuff below is for snippets
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
 
+"syntastic checkers to enable
+let g:syntastic_coffee_checkers = ['coffeelint', 'coffee']
 
 set runtimepath+=~/.vim/bundle/vim-snippets
 
@@ -65,7 +66,7 @@ map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>* :call RunAllSpecs()<CR>
 "let g:rspec_command = 'call VimuxRunCommand("bundle exec rspec {spec}\n")'
-let g:rspec_command = 'call VimuxRunCommand("bundle exec rspec --format progress --require ~/code/rspec_support/vim_formatter.rb --format VimFormatter --out quickfix.out {spec}\n")'
+let g:rspec_command = 'call VimuxRunCommand("bundle exec spring rspec --format progress --require ~/code/rspec_support/vim_formatter.rb --format VimFormatter --out quickfix.out {spec}\n")'
 " opens the quickfix file and window
 :map <leader>q :cg quickfix.out \| cwindow<CR>
 
@@ -85,6 +86,8 @@ set history=500
 
 " syntax highlighting
 syntax on 
+filetype off
+filetype plugin on
 
 " Customizations
 set relativenumber
@@ -141,8 +144,8 @@ map <Leader>gs :Gstatus<CR>
 "quick open for Dropbox and notes files
 map <Leader>dr :e ~/Dropbox<cr>
 map <Leader>pn :sp ~/Dropbox/work/notes/project-notes.txt<cr>
-map <Leader>noy :sp ~/Dropbox/work/notes/annoyances-notes.txt<cr>
-map <Leader>td :sp ~/Dropbox/work/notes/todo.txt<cr>
+map <Leader>pa  :sp ~/Dropbox/work/notes/annoyances-notes.txt<cr>
+map <Leader>pt :sp ~/Dropbox/work/notes/todo.txt<cr>
 
 
 "these two lines help w search.  case ignored unless search string has
@@ -216,6 +219,7 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 au BufReadPost *.dwt set syntax=html
+
 
 "pbcopy shortcuts to get to system clipboard
 vmap <C-x> :!pbcopy<CR>
