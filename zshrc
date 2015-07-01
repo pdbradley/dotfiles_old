@@ -14,3 +14,4 @@ export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="/usr/local/mysql/bin:$PATH"
 
 alias vimx='vim'
+alias v='vim'

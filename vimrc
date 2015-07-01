@@ -1,6 +1,7 @@
 set nocompatible 
 let mapleader = " "
-set omnifunc=syntaxcomplete#Complete
+"set omnifunc=syntaxcomplete#Complete
+set complete=.,b,u,]
 
 
 set backspace=2
@@ -37,6 +38,7 @@ Bundle 'scrooloose/nerdcommenter.git'
 
 Bundle 'justinmk/vim-sneak'
 Bundle 'tpope/vim-rails.git'
+"Bundle 'tpope/vim-rbenv'
 Bundle 'scrooloose/nerdtree.git'
 Bundle 'mileszs/ack.vim'
 Bundle 'kien/ctrlp.vim'
@@ -59,6 +61,11 @@ let g:fakeclip_terminal_multiplexer_type = 'tmux'
 
 filetype plugin indent on  "required!
 
+"tags easytags ctags settings
+"use a ctags file specific to the project
+set tags=./tags
+"don't write to the global ctags file
+let g:easytags_dynamic_files = 2
 
 "Rspec.vim mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>
@@ -121,6 +128,7 @@ nnoremap <leader>z :ZoomWin<CR>
 
 " My Custom Mappings related to ctrl-p
 " copied the idea for this from gary bernhardts vimrc
+map <leader>gj :CtrlP app/assets/javascripts<cr>
 map <leader>gv :CtrlP app/views<cr>
 map <leader>gf :CtrlP spec/factories<cr>
 map <leader>gc :CtrlP app/controllers<cr>
