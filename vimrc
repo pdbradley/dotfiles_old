@@ -253,3 +253,7 @@ map <leader>e :edit %%
 map <leader>v :view %%
 
 runtime macros/matchit.vim
+
+"create a new file AND directory by with :E filename
+command -nargs=1 E execute('silent! !mkdir -p "$(dirname "<args>")"') <Bar> e <args>
+
