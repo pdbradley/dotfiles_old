@@ -53,6 +53,7 @@ Bundle 'tomtom/tlib_vim'
 
 "syntastic checkers to enable
 let g:syntastic_coffee_checkers = ['coffeelint', 'coffee']
+let g:syntastic_ruby_mri_exec = '~/.rbenv/versions/2.2.1/bin/ruby'
 
 set runtimepath+=~/.vim/bundle/vim-snippets
 
