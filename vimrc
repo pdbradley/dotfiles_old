@@ -10,12 +10,12 @@ set nobackup
 set nowritebackup
 set noswapfile
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 "Let Vundle manage Vundle
 "required
-Bundle 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
 "my bundles here:
 Bundle 'tpope/vim-fugitive'
@@ -50,8 +50,8 @@ Bundle 'kana/vim-fakeclip'
 Bundle 'kchmck/vim-coffee-script'
 
 "all this stuff below is for snippets
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
 
 "syntastic checkers to enable
 let g:syntastic_coffee_checkers = ['coffeelint', 'coffee']
