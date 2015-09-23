@@ -18,40 +18,43 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 "my bundles here:
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-dispatch'
-Bundle 'tomtom/tcomment_vim'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-surround'
-Bundle 'kana/vim-textobj-user'
-Bundle 'nelstrom/vim-textobj-rubyblock'
-Bundle 'pangloss/vim-javascript'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-dispatch'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-surround'
+Plugin 'kana/vim-textobj-user'
+Plugin 'nelstrom/vim-textobj-rubyblock'
+Plugin 'pangloss/vim-javascript'
 
-Bundle 'xolox/vim-misc'
-Bundle 'xolox/vim-easytags'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-easytags'
 
-Bundle 'thoughtbot/vim-rspec'
-Bundle 'benmills/vimux'
-Bundle 'christoomey/vim-tmux-navigator'
-"Bundle 'christoomey/vim-tmux-runner'
-"Bundle 'scrooloose/nerdcommenter.git'
+Plugin 'thoughtbot/vim-rspec'
+Plugin 'benmills/vimux'
+Plugin 'christoomey/vim-tmux-navigator'
+"Plugin 'christoomey/vim-tmux-runner'
+"Plugin 'scrooloose/nerdcommenter.git'
 
-Bundle 'danro/rename.vim'
+Plugin 'danro/rename.vim'
 
-Bundle 'justinmk/vim-sneak'
-Bundle 'tpope/vim-rails.git'
+Plugin 'justinmk/vim-sneak'
+Plugin 'tpope/vim-rails.git'
 "Bundle 'tpope/vim-rbenv'
-Bundle 'scrooloose/nerdtree.git'
-Bundle 'mileszs/ack.vim'
-Bundle 'kien/ctrlp.vim'
-Bundle 'vim-scripts/ZoomWin'
-Bundle 'scrooloose/syntastic'
-Bundle 'kana/vim-fakeclip'
-Bundle 'kchmck/vim-coffee-script'
+Plugin 'scrooloose/nerdtree.git'
+Plugin 'mileszs/ack.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'vim-scripts/ZoomWin'
+Plugin 'scrooloose/syntastic'
+Plugin 'kana/vim-fakeclip'
+Plugin 'kchmck/vim-coffee-script'
 
 "all this stuff below is for snippets
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
+
+call vundle#end()
+filetype plugin indent on  "required!
 
 "syntastic checkers to enable
 let g:syntastic_coffee_checkers = ['coffeelint', 'coffee']
@@ -65,7 +68,6 @@ set runtimepath+=~/.vim/bundle/vim-snippets
 "fakeclip settings
 let g:fakeclip_terminal_multiplexer_type = 'tmux'
 
-filetype plugin indent on  "required!
 
 "tags easytags ctags settings
 "use a ctags file specific to the project
