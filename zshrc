@@ -1,4 +1,3 @@
-
 function g {
    if [[ $# > 0 ]]; then
      git $@
@@ -15,3 +14,5 @@ export PATH="/usr/local/mysql/bin:$PATH"
 
 alias vimx='vim'
 alias v='vim'
+
+source $HOME/dotfiles/zsh/aliases
