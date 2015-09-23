@@ -25,6 +25,7 @@ Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-surround'
 Bundle 'kana/vim-textobj-user'
 Bundle 'nelstrom/vim-textobj-rubyblock'
+Bundle 'pangloss/vim-javascript'
 
 Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-easytags'
@@ -33,8 +34,9 @@ Bundle 'thoughtbot/vim-rspec'
 Bundle 'benmills/vimux'
 Bundle 'christoomey/vim-tmux-navigator'
 "Bundle 'christoomey/vim-tmux-runner'
-Bundle 'scrooloose/nerdcommenter.git'
+"Bundle 'scrooloose/nerdcommenter.git'
 
+Bundle 'danro/rename.vim'
 
 Bundle 'justinmk/vim-sneak'
 Bundle 'tpope/vim-rails.git'
@@ -54,6 +56,9 @@ Bundle 'tomtom/tlib_vim'
 "syntastic checkers to enable
 let g:syntastic_coffee_checkers = ['coffeelint', 'coffee']
 let g:syntastic_ruby_mri_exec = '~/.rbenv/versions/2.2.1/bin/ruby'
+
+"javascript vars for vim-javascript
+let g:javascript_enable_domhtmlcss = 1
 
 set runtimepath+=~/.vim/bundle/vim-snippets
 
