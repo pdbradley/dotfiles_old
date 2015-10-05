@@ -4,7 +4,7 @@
 [core]
   autocrlf = input
   safecrlf = true
-  excludesfile = /Users/philip/.gitignore_global
+	excludesfile = /Users/philip/.gitignore_global
 [color]
   ui = auto
 [alias]
@@ -18,3 +18,5 @@
   up = !git fetch origin && git rebase origin/master
   prunelocal = !sh -c 'git branch --merged | grep -v master | xargs -n 1 git branch -d'
   pruneremote = remote prune origin
+[push]
+	default = matching

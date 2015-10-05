@@ -34,7 +34,7 @@ Plugin 'thoughtbot/vim-rspec'
 Plugin 'benmills/vimux'
 Plugin 'christoomey/vim-tmux-navigator'
 "Plugin 'christoomey/vim-tmux-runner'
-"Plugin 'scrooloose/nerdcommenter.git'
+Plugin 'scrooloose/nerdcommenter.git'
 
 Plugin 'danro/rename.vim'
 
