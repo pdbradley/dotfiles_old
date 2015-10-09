@@ -143,6 +143,8 @@ map <leader>gc :CtrlP app/controllers<cr>
 map <leader>gm :CtrlP app/models<cr>
 map <leader>gh :CtrlPT app/helpers<cr>
 map <leader>gl :CtrlP lib<cr>
+map <leader>gsc :CtrlP spec/controllers<cr>
+map <leader>gsm :CtrlP spec/models<cr>
 
 "rails vim quicker mappings
 map <Leader>c :Rcontroller 
@@ -264,4 +266,10 @@ runtime macros/matchit.vim
 
 "create a new file AND directory by with :E filename
 command -nargs=1 E execute('silent! !mkdir -p "$(dirname "<args>")"') <Bar> e <args>
+
+" split sizing
+"smallify
+nnoremap <C-m> 7<C-w>_
+"equalize
+nnoremap <C-x> <C-w>=
 
