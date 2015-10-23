@@ -2,9 +2,10 @@
    name = Philip Bradley
    email = pdbradley@gmail.com
 [core]
-  autocrlf = input
-  safecrlf = true
+	autocrlf = input
+	safecrlf = true
 	excludesfile = /Users/philip/.gitignore_global
+	editor = /usr/bin/vim
 [color]
   ui = auto
 [alias]

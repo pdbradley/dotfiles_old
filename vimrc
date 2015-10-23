@@ -81,7 +81,7 @@ map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>* :call RunAllSpecs()<CR>
 "let g:rspec_command = 'call VimuxRunCommand("bundle exec rspec {spec}\n")'
-let g:rspec_command = 'call VimuxRunCommand("bundle exec spring rspec --format progress --require ~/code/rspec_support/vim_formatter.rb --format VimFormatter --out quickfix.out {spec}\n")'
+let g:rspec_command = 'call VimuxRunCommand("bundle exec spring rspec --format progress --require ~/code/rspec_support/quickfix_formatter.rb --format QuickfixFormatter --out quickfix.out {spec}\n")'
 " opens the quickfix file and window
 :map <leader>q :cg quickfix.out \| cwindow<CR>
 
@@ -267,9 +267,4 @@ runtime macros/matchit.vim
 "create a new file AND directory by with :E filename
 command -nargs=1 E execute('silent! !mkdir -p "$(dirname "<args>")"') <Bar> e <args>
 
-" split sizing
-"smallify
-nnoremap <C-m> 7<C-w>_
-"equalize
-nnoremap <C-x> <C-w>=
 
