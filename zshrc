@@ -12,6 +12,8 @@ eval "$(rbenv init -)"
 export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="/usr/local/mysql/bin:$PATH"
 
+export VMAIL_VIM="mvim"
+
 
 source $HOME/dotfiles/zsh/prompt
 source $HOME/dotfiles/zsh/aliases
