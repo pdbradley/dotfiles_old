@@ -29,6 +29,7 @@ Plugin 'pangloss/vim-javascript'
 
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-easytags'
+Plugin 'james9909/stackanswers.vim'
 
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'benmills/vimux'
@@ -82,8 +83,9 @@ map <Leader>l :call RunLastSpec()<CR>
 map <Leader>* :call RunAllSpecs()<CR>
 "let g:rspec_command = 'call VimuxRunCommand("bundle exec rspec {spec}\n")'
 let g:rspec_command = 'call VimuxRunCommand("bundle exec spring rspec --format progress --require ~/code/rspec_support/quickfix_formatter.rb --format QuickfixFormatter --out quickfix.out {spec}\n")'
+
 " opens the quickfix file and window
-:map <leader>q :cg quickfix.out \| cwindow<CR>
+:map <leader>x :cg quickfix.out \| cwindow<CR>
 
 "disable folding by default
 set nofoldenable
@@ -164,6 +166,7 @@ map <Leader>dr :e ~/Dropbox<cr>
 map <Leader>pn :sp ~/Dropbox/work/notes/project-notes.txt<cr>
 map <Leader>pa  :sp ~/Dropbox/work/notes/annoyances-notes.txt<cr>
 map <Leader>pt :sp ~/Dropbox/work/notes/todo.txt<cr>
+map <Leader>vimrc :sp ~/dotfiles/vimrc<cr>
 
 
 "these two lines help w search.  case ignored unless search string has
@@ -207,6 +210,28 @@ inoremap jj <ESC>
 
 "no delay when hitting esc
 set noesckeys
+
+"some nice hashrocket ones
+
+" cp copies and pastes the present paragraph (method)
+nnoremap cp yap<S-}>p
+
+" formats the current paragraph
+nnoremap <leader>f =ip
+
+" turns on paste and nopaste
+set pastetoggle=<leader>z
+
+"apply macros with Q
+nnoremap Q @q
+vnoremap Q :norm @q<cr>
+
+"shift direction to change tabs
+noremap <S-l> gt
+noremap <S-h> gT
+
+"quit files with leader q
+nnoremap  <leader>q :q<cr>
 
 
 "map <leader>w to open a new vsplit and switch to it

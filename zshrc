@@ -16,6 +16,8 @@ export PATH="/Applications/Postgres.app/Contents/Versions/9.4/bin:$PATH"
 
 
 
+export VMAIL_VIM="mvim"
+
 
 source $HOME/dotfiles/zsh/prompt
 source $HOME/dotfiles/zsh/aliases
