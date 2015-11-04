@@ -4,7 +4,7 @@
 [core]
 	autocrlf = input
 	safecrlf = true
-	excludesfile = /Users/philip/.gitignore_global
+	excludesfile = ~/.gitignore
 	editor = /usr/bin/vim
 [color]
   ui = auto

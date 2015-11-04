@@ -14,6 +14,7 @@ export PATH="/usr/local/mysql/bin:$PATH"
 export PATH="/Applications/Postgres.app/Contents/Versions/9.4/bin:$PATH"
 
 
+autoload -Uz compinit && compinit
 
 
 export VMAIL_VIM="mvim"
