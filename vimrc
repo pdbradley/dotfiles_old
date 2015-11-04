@@ -219,8 +219,8 @@ nnoremap cp yap<S-}>p
 " formats the current paragraph
 nnoremap <leader>f =ip
 
-" turns on paste and nopaste
-set pastetoggle=<leader>z
+" turns on paste and nopaste (messes with my typing)
+"set pastetoggle=<leader>z
 
 "apply macros with Q
 nnoremap Q @q
