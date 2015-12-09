@@ -22,3 +22,6 @@ export VMAIL_VIM="mvim"
 
 source $HOME/dotfiles/zsh/prompt
 source $HOME/dotfiles/zsh/aliases
+
+export NVM_DIR="/Users/philip/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

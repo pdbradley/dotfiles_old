@@ -19,23 +19,22 @@ Plugin 'VundleVim/Vundle.vim'
 
 "my bundles here:
 Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-dispatch'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-unimpaired'
 Plugin 'kana/vim-textobj-user'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'pangloss/vim-javascript'
 
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-easytags'
-Plugin 'james9909/stackanswers.vim'
 
 Plugin 'thoughtbot/vim-rspec'
-Plugin 'benmills/vimux'
+"Plugin 'benmills/vimux'
 Plugin 'christoomey/vim-tmux-navigator'
-"Plugin 'christoomey/vim-tmux-runner'
-Plugin 'scrooloose/nerdcommenter.git'
+Plugin 'christoomey/vim-tmux-runner'
+"Plugin 'scrooloose/nerdcommenter.git'
 
 Plugin 'danro/rename.vim'
 
@@ -56,6 +55,18 @@ Plugin 'tomtom/tlib_vim'
 
 call vundle#end()
 filetype plugin indent on  "required!
+
+"VTR (vim tmux runner) shortcuts:
+let g:VtrPercentage = 50
+let g:VtrOrientation = 'h'
+let g:VtrClearOnReatach = 0
+map <Leader>vo :VtrOpenRunner<CR>
+map <Leader>vk :VtrKillRunner<CR>
+map <Leader>vf :VtrFocusRunner<CR>
+map <Leader>vd :VtrDetachRunner<CR>
+map <Leader>vx :VtrSendFile<CR>
+
+
 
 "syntastic checkers to enable
 let g:syntastic_coffee_checkers = ['coffeelint', 'coffee']
@@ -82,7 +93,7 @@ map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>* :call RunAllSpecs()<CR>
 "let g:rspec_command = 'call VimuxRunCommand("bundle exec rspec {spec}\n")'
-let g:rspec_command = 'call VimuxRunCommand("bundle exec spring rspec --format progress --require ~/code/rspec_support/quickfix_formatter.rb --format QuickfixFormatter --out quickfix.out {spec}\n")'
+let g:rspec_command = "VtrSendCommandToRunner bundle exec spring rspec --format progress --require ~/code/rspec_support/quickfix_formatter.rb --format QuickfixFormatter --out quickfix.out {spec}\n"
 
 " opens the quickfix file and window
 :map <leader>x :cg quickfix.out \| cwindow<CR>
@@ -107,7 +118,7 @@ filetype off
 filetype plugin on
 
 " Customizations
-set relativenumber
+"set relativenumber
 "set number
 set nocompatible
 set showmatch
