@@ -33,7 +33,7 @@ Plugin 'xolox/vim-easytags'
 Plugin 'thoughtbot/vim-rspec'
 "Plugin 'benmills/vimux'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'christoomey/vim-tmux-runner'
+Plugin 'pdbradley/vim-tmux-runner'
 "Plugin 'scrooloose/nerdcommenter.git'
 
 Plugin 'danro/rename.vim'
@@ -64,7 +64,7 @@ map <Leader>vo :VtrOpenRunner<CR>
 map <Leader>vk :VtrKillRunner<CR>
 map <Leader>vf :VtrFocusRunner<CR>
 map <Leader>vd :VtrDetachRunner<CR>
-map <Leader>vx :VtrSendFile<CR>
+map <Leader>x :VtrSendFile<CR>
 
 
 
@@ -96,7 +96,7 @@ map <Leader>* :call RunAllSpecs()<CR>
 let g:rspec_command = "VtrSendCommandToRunner bundle exec spring rspec --format progress --require ~/code/rspec_support/quickfix_formatter.rb --format QuickfixFormatter --out quickfix.out {spec}\n"
 
 " opens the quickfix file and window
-:map <leader>x :cg quickfix.out \| cwindow<CR>
+:map <leader>j :cg quickfix.out \| cwindow<CR>
 
 "disable folding by default
 set nofoldenable
@@ -177,7 +177,9 @@ map <Leader>dr :e ~/Dropbox<cr>
 map <Leader>pn :sp ~/Dropbox/work/notes/project-notes.txt<cr>
 map <Leader>pa  :sp ~/Dropbox/work/notes/annoyances-notes.txt<cr>
 map <Leader>pt :sp ~/Dropbox/work/notes/todo.txt<cr>
-map <Leader>vimrc :sp ~/dotfiles/vimrc<cr>
+
+map <Leader>vimrc :sp $MYVIMRC<cr>
+map <Leader>r :source $MYVIMRC<cr>
 
 
 "these two lines help w search.  case ignored unless search string has
