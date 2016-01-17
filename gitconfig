@@ -19,5 +19,6 @@
   up = !git fetch origin && git rebase origin/master
   prunelocal = !sh -c 'git branch --merged | grep -v master | xargs -n 1 git branch -d'
   pruneremote = remote prune origin
+  sla = log --oneline --decorate --graph --all
 [push]
 	default = matching

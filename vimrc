@@ -52,6 +52,8 @@ Plugin 'kchmck/vim-coffee-script'
 "all this stuff below is for snippets
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
 
 call vundle#end()
 filetype plugin indent on  "required!
@@ -64,6 +66,7 @@ map <Leader>vo :VtrOpenRunner<CR>
 map <Leader>vk :VtrKillRunner<CR>
 map <Leader>vf :VtrFocusRunner<CR>
 map <Leader>vd :VtrDetachRunner<CR>
+
 map <Leader>x :VtrSendFile<CR>
 
 
@@ -139,7 +142,7 @@ set hidden              " Don't prompt to save when switching buffers
 set list listchars=tab:»·,trail:·
 
 " Snippets are activated by Shift+Tab
-let g:snippetsEmu_key = "<S-Tab>"
+"let g:snippetsEmu_key = "<S-Tab>"
 
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
