@@ -24,6 +24,11 @@ parse_git_dirty() {
   fi
 }
 
+# Formats prompt string for current git commit short SHA
+function git_prompt_short_sha() {
+  SHA=$(git rev-parse --short HEAD 2> /dev/null) && echo "$ZSH_THEME_GIT_PROMPT_SHA_BEFORE$SHA$ZSH_THEME_GIT_PROMPT_SHA_AFTER"
+  }
+
 # if in a git repo, show dirty indicator + git branch
 git_custom_status() {
   local git_where="$(parse_git_branch)"
@@ -38,7 +43,7 @@ rbenv_version_status() {
 
 # put fancy stuff on the right
 if which rbenv &> /dev/null; then
-  RPS1='$(git_custom_status)%{$fg[red]%}$(rbenv_version_status)%{$reset_color%} $EPS1'
+  RPS1='$(git_prompt_short_sha) $(git_custom_status)%{$fg[red]%}$(rbenv_version_status)%{$reset_color%} $EPS1'
 else
   RPS1='$(git_custom_status) $EPS1'
 fi
