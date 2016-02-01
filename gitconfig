@@ -8,7 +8,12 @@
 	editor = /usr/bin/vim
 [color]
   ui = auto
+[push]
+  default = upstream
+[fetch]
+  prune = true
 [alias]
+  b = branch
   co = checkout
   aa = add --all
   ap = add --patch
@@ -16,15 +21,20 @@
   ci = commit -v
   co = checkout
   st = status
+  pl = pull
+  ps = push
   up = !git fetch origin && git rebase origin/master
+  mup = !git checkout master && git pull && git checkout -
+  ureset = !git upstream && git reset --hard $(git upstream)  #resets current branch to upstream
+  upstream = rev-parse --abbrev-ref --symbolic-full-name @{u}
   prunelocal = !sh -c 'git branch --merged | grep -v master | xargs -n 1 git branch -d'
   pruneremote = remote prune origin
   sla = log --oneline --decorate --graph --all
   whowhen = log --pretty=format:\"%C(yellow)%h%C(reset) - %an [%C(green)%ar%C(reset)] %s\"
   glog = log -E -i --grep
   stashu = stash -u
-  can = commit --amend --no-edit
+  car = commit --amend --no-edit
   unstage = reset
+  unchange = checkout --
   uncommit = reset --soft HEAD^
-[push]
-	default = matching
+  df = diff --word-diff --color-words

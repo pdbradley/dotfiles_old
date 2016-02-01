@@ -5,6 +5,8 @@ function g {
      git status
    fi
 }
+# complete g like git
+compdef g=git
 
 eval "$(rbenv init -)"
 

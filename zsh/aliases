@@ -18,6 +18,8 @@ alias gd='git diff'
 alias gdm='git diff master'
 alias gpush='echo "Use gp!" && git push'
 alias gp='git push'
+alias browse = !hub browse
+alias compare = !hub compare
 alias herkou='heroku'
 alias js='jekyll serve'
 alias killruby='killall -9 ruby'
@@ -39,3 +41,5 @@ alias vi='vim'
 alias vimx='vim'
 alias v='vim'
 alias t='python ~/code/t/t.py --task-dir ~/Dropbox/tasks --list tasks'
+
+
