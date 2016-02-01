@@ -1,3 +1,10 @@
+# had to preload compdef https://github.com/memborsky/dotfiles/commit/0cd2e69463d25bb0d9fa17710c7a8ed8f54a018f
+autoload -U compinit compdef
+compinit
+
+# complete g like git
+compdef g=git
+
 function g {
    if [[ $# > 0 ]]; then
      git $@
@@ -5,8 +12,6 @@ function g {
      git status
    fi
 }
-# complete g like git
-compdef g=git
 
 eval "$(rbenv init -)"
 
