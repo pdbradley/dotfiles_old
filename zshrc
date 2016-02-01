@@ -23,6 +23,7 @@ export PATH="/Applications/Postgres.app/Contents/Versions/9.4/bin:$PATH"
 
 autoload -Uz compinit && compinit
 
+export PATH="$HOME/bin:$PATH"
 
 export VMAIL_VIM="mvim"
 

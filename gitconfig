@@ -38,3 +38,6 @@
   unchange = checkout --
   uncommit = reset --soft HEAD^
   df = diff --word-diff --color-words
+  browse = !hub browse
+  compare = !hub compare
+  issues = !hub issues
