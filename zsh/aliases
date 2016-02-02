@@ -38,6 +38,6 @@ alias u='cd ..'
 alias vi='vim'
 alias vimx='vim'
 alias v='vim'
-alias t='python ~/code/t/t.py --task-dir ~/Dropbox/tasks --list tasks'
+alias t='~/bin/t --task-dir ~/Dropbox/tasks --list tasks'
 
 
