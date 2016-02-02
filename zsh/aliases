@@ -38,6 +38,7 @@ alias u='cd ..'
 alias vi='vim'
 alias vimx='vim'
 alias v='vim'
-alias t='~/bin/t --task-dir ~/Dropbox/tasks --list tasks'
+alias t='~/bin/t --task-dir ~/Dropbox/tasks --list personaltasks'
+alias tw='~/bin/t --task-dir ~/Dropbox/tasks --list worktasks'
 
 
