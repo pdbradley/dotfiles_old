@@ -55,6 +55,8 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 
+Plugin 'mickaobrien/vim-stackoverflow'
+
 call vundle#end()
 filetype plugin indent on  "required!
 
@@ -121,8 +123,8 @@ filetype off
 filetype plugin on
 
 " Customizations
-"set relativenumber
-"set number
+set relativenumber
+set number
 set nocompatible
 set showmatch
 set ruler "show cursor position all the time
@@ -174,6 +176,9 @@ map <Leader>bb :!bundle install<cr>
 
 "git mappings
 map <Leader>gs :Gstatus<CR>
+
+"how2 stack overflow
+map <Leader>k :!how2 -l ruby 
 
 "quick open for Dropbox and notes files
 map <Leader>dr :e ~/Dropbox<cr>
