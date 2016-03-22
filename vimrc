@@ -178,7 +178,7 @@ map <Leader>bb :!bundle install<cr>
 map <Leader>gs :Gstatus<CR>
 
 "how2 stack overflow
-map <Leader>k :!how2 -l ruby 
+"map <Leader>k :!how2 -l ruby 
 
 "quick open for Dropbox and notes files
 map <Leader>dr :e ~/Dropbox<cr>
@@ -300,6 +300,8 @@ map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
 "grab into system clipboard
 map <leader>y "*y
 
+"ack on the word under the cursor
+map <leader>k :Ack <C-R><C-W><CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " OPEN FILES IN DIRECTORY OF CURRENT FILE  thanks bernhardt
@@ -311,6 +313,6 @@ map <leader>v :view %%
 runtime macros/matchit.vim
 
 "create a new file AND directory by with :E filename
-command -nargs=1 E execute('silent! !mkdir -p "$(dirname "<args>")"') <Bar> e <args>
+"command -nargs=1 E execute('silent! !mkdir -p "$(dirname "<args>")"') <Bar> e <args>
 
 
