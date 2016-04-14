@@ -19,16 +19,19 @@ Plugin 'VundleVim/Vundle.vim'
 
 "my bundles here:
 Plugin 'tpope/vim-fugitive'
-Plugin 'tomtom/tcomment_vim'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'vim-scripts/ReplaceWithRegister'
 Plugin 'kana/vim-textobj-user'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'pangloss/vim-javascript'
 
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-easytags'
+
+Plugin 'stefanoverna/vim-i18n.git'
 
 Plugin 'thoughtbot/vim-rspec'
 "Plugin 'benmills/vimux'
@@ -274,6 +277,8 @@ endif
 let g:ackprg = 'ag -i --nogroup --nocolor --column --ignore-dir log --ignore-dir versions'
 
 nnoremap <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>N :NERDTreeFind<CR>
+
 
 "move around your splits with ctrl hjkl which b/c capslock is assigned to ctrl
 "works well
@@ -313,6 +318,10 @@ map <leader>v :view %%
 runtime macros/matchit.vim
 
 "create a new file AND directory by with :E filename
-"command -nargs=1 E execute('silent! !mkdir -p "$(dirname "<args>")"') <Bar> e <args>
+command -nargs=1 E execute('silent! !mkdir -p "$(dirname "<args>")"') <Bar> e <args>
+
+"I18n plugin mappings
+vmap <Leader>z :call I18nTranslateString()<CR>
+vmap <Leader>dt :call I18nDisplayTranslation()<CR>
 
 
