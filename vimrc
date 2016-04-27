@@ -36,6 +36,7 @@ Plugin 'stefanoverna/vim-i18n.git'
 Plugin 'thoughtbot/vim-rspec'
 "Plugin 'benmills/vimux'
 Plugin 'christoomey/vim-tmux-navigator'
+"Plugin 'christoomey/vim-tmux-runner'
 Plugin 'pdbradley/vim-tmux-runner'
 "Plugin 'scrooloose/nerdcommenter.git'
 
@@ -126,8 +127,8 @@ filetype off
 filetype plugin on
 
 " Customizations
-set relativenumber
-set number
+"set relativenumber
+"set number
 set nocompatible
 set showmatch
 set ruler "show cursor position all the time
