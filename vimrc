@@ -27,24 +27,15 @@ Plugin 'vim-scripts/ReplaceWithRegister'
 Plugin 'kana/vim-textobj-user'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'pangloss/vim-javascript'
-
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-easytags'
-
 Plugin 'stefanoverna/vim-i18n.git'
-
 Plugin 'thoughtbot/vim-rspec'
-"Plugin 'benmills/vimux'
 Plugin 'christoomey/vim-tmux-navigator'
-"Plugin 'christoomey/vim-tmux-runner'
 Plugin 'pdbradley/vim-tmux-runner'
-"Plugin 'scrooloose/nerdcommenter.git'
-
 Plugin 'danro/rename.vim'
-
 Plugin 'justinmk/vim-sneak'
 Plugin 'tpope/vim-rails.git'
-"Bundle 'tpope/vim-rbenv'
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'mileszs/ack.vim'
 Plugin 'kien/ctrlp.vim'
@@ -59,7 +50,7 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 
-Plugin 'mickaobrien/vim-stackoverflow'
+colorscheme desert
 
 call vundle#end()
 filetype plugin indent on  "required!
@@ -127,7 +118,7 @@ filetype off
 filetype plugin on
 
 " Customizations
-"set relativenumber
+set relativenumber
 "set number
 set nocompatible
 set showmatch
@@ -203,13 +194,8 @@ set smartcase
 set gdefault
 set bg=light
 
-"highlight current line
-colorscheme desert
-highlight NonText guibg=#060606
 
 set cursorline
-"hi CursorLine term=bold cterm=bold guibg=Grey40
-hi CursorLine term=bold guibg=#222222 guibg=Grey40
 
 "status line highlight
 highlight StatusLine ctermfg=blue ctermbg=yellow
