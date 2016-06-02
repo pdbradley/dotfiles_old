@@ -50,7 +50,6 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 
-colorscheme desert
 
 call vundle#end()
 filetype plugin indent on  "required!
@@ -312,4 +311,5 @@ command -nargs=1 E execute('silent! !mkdir -p "$(dirname "<args>")"') <Bar> e <a
 vmap <Leader>z :call I18nTranslateString()<CR>
 vmap <Leader>dt :call I18nDisplayTranslation()<CR>
 
+colorscheme ron
 
