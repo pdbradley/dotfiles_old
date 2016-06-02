@@ -89,7 +89,7 @@ let g:easytags_dynamic_files = 2
 "Rspec.vim mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
+"map <Leader>l :call RunLastSpec()<CR>
 map <Leader>* :call RunAllSpecs()<CR>
 "let g:rspec_command = 'call VimuxRunCommand("bundle exec rspec {spec}\n")'
 let g:rspec_command = "VtrSendCommandToRunner bundle exec spring rspec --format progress --require ~/code/rspec_support/quickfix_formatter.rb --format QuickfixFormatter --out quickfix.out {spec}\n"
@@ -116,6 +116,7 @@ syntax on
 filetype off
 filetype plugin on
 
+map <Leader>l :silent !chrome-cli reload<cr>
 " Customizations
 set relativenumber
 "set number
