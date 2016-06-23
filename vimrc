@@ -118,7 +118,7 @@ filetype plugin on
 
 map <Leader>l :silent !chrome-cli reload<cr>
 " Customizations
-set relativenumber
+"set relativenumber
 "set number
 set nocompatible
 set showmatch
@@ -160,12 +160,12 @@ map <leader>gsc :CtrlP spec/controllers<cr>
 map <leader>gsm :CtrlP spec/models<cr>
 
 "rails vim quicker mappings
-map <Leader>c :Rcontroller 
+map <Leader>c :Econtroller 
 "map <Leader>sc :RScontroller 
-map <Leader>vc :RVcontroller 
-map <Leader>m :Rmodel 
+map <Leader>vc :EVcontroller 
+map <Leader>m :Emodel 
 "map <Leader>sm :RSmodel 
-map <Leader>vm :RVmodel 
+map <Leader>vm :EVmodel 
 
 map <Leader>bb :!bundle install<cr>
 
@@ -313,3 +313,7 @@ vmap <Leader>dt :call I18nDisplayTranslation()<CR>
 
 colorscheme ron
 
+"Temp settings to jump back and forth through commits
+map <leader>( :silent !git gchild<CR>:redraw!<CR>
+map <leader>) :silent !git checkout HEAD^<CR>:redraw!<CR>
+set autoread
