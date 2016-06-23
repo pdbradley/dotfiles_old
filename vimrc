@@ -85,6 +85,7 @@ let g:fakeclip_terminal_multiplexer_type = 'tmux'
 set tags=./tags
 "don't write to the global ctags file
 let g:easytags_dynamic_files = 2
+map <Leader>retag :!ctags -R --exclude=.bundle
 
 "Rspec.vim mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>
@@ -182,7 +183,7 @@ map <Leader>pa  :sp ~/Dropbox/work/notes/annoyances-notes.txt<cr>
 map <Leader>pt :sp ~/Dropbox/work/notes/todo.txt<cr>
 
 map <Leader>vimrc :sp $MYVIMRC<cr>
-map <Leader>r :source $MYVIMRC<cr>
+map <Leader>reload :source $MYVIMRC<cr>
 
 
 "these two lines help w search.  case ignored unless search string has
