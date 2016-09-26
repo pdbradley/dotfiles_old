@@ -34,7 +34,7 @@ Plugin 'thoughtbot/vim-rspec'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'pdbradley/vim-tmux-runner'
 Plugin 'danro/rename.vim'
-Plugin 'justinmk/vim-sneak'
+"Plugin 'justinmk/vim-sneak'
 Plugin 'tpope/vim-rails.git'
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'mileszs/ack.vim'
@@ -85,6 +85,7 @@ let g:fakeclip_terminal_multiplexer_type = 'tmux'
 set tags=./tags
 "don't write to the global ctags file
 let g:easytags_dynamic_files = 2
+map <Leader>retag :!ctags -R --exclude=.bundle
 
 "Rspec.vim mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>
@@ -118,7 +119,7 @@ filetype plugin on
 
 map <Leader>l :silent !chrome-cli reload<cr>
 " Customizations
-set relativenumber
+"set relativenumber
 "set number
 set nocompatible
 set showmatch
@@ -160,12 +161,12 @@ map <leader>gsc :CtrlP spec/controllers<cr>
 map <leader>gsm :CtrlP spec/models<cr>
 
 "rails vim quicker mappings
-map <Leader>c :Rcontroller 
+map <Leader>c :Econtroller 
 "map <Leader>sc :RScontroller 
-map <Leader>vc :RVcontroller 
-map <Leader>m :Rmodel 
+map <Leader>vc :EVcontroller 
+map <Leader>m :Emodel 
 "map <Leader>sm :RSmodel 
-map <Leader>vm :RVmodel 
+map <Leader>vm :EVmodel 
 
 map <Leader>bb :!bundle install<cr>
 
@@ -183,7 +184,7 @@ map <Leader>pa  :sp ~/Dropbox/work/notes/annoyances-notes.txt<cr>
 map <Leader>pt :sp ~/Dropbox/work/notes/todo.txt<cr>
 
 map <Leader>vimrc :sp $MYVIMRC<cr>
-map <Leader>r :source $MYVIMRC<cr>
+map <Leader>reload :source $MYVIMRC<cr>
 
 
 "these two lines help w search.  case ignored unless search string has
@@ -314,3 +315,7 @@ vmap <Leader>dt :call I18nDisplayTranslation()<CR>
 
 colorscheme ron
 
+"Temp settings to jump back and forth through commits
+map <leader>( :silent !git gchild<CR>:redraw!<CR>
+map <leader>) :silent !git checkout HEAD^<CR>:redraw!<CR>
+set autoread

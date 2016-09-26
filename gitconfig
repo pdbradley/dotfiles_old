@@ -44,4 +44,5 @@
   issues = !hub issues
   fall = "!for remote in $(git remote); do echo "Fetching $remote"; git fetch "$remote"; done"
   childsha = !git rev-list HEAD..master | tail -n 1
+  gchild = !git checkout $(git childsha)
 
