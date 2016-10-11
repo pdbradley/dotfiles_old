@@ -119,7 +119,7 @@ filetype plugin on
 
 map <Leader>l :silent !chrome-cli reload<cr>
 " Customizations
-"set relativenumber
+set relativenumber
 "set number
 set nocompatible
 set showmatch
@@ -178,6 +178,7 @@ map <Leader>gs :Gstatus<CR>
 
 "quick open for Dropbox and notes files
 map <Leader>dr :e ~/Dropbox<cr>
+map <Leader>corner :sp ~/Dropbox/work/notes/cornerstone-notes.txt<cr>
 map <Leader>pn :sp ~/Dropbox/work/notes/project-notes.txt<cr>
 map <Leader>pa  :sp ~/Dropbox/work/notes/annoyances-notes.txt<cr>
 map <Leader>pt :sp ~/Dropbox/work/notes/todo.txt<cr>
