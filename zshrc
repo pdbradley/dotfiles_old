@@ -41,7 +41,7 @@ export NVM_DIR="/Users/philip/.nvm"
 [ -f /Users/philip/.travis/travis.sh ] && source /Users/philip/.travis/travis.sh
 
 # The next line updates PATH for the Google Cloud SDK.
-source '/Users/philip/Downloads/google-cloud-sdk/path.zsh.inc'
+if [ -f /Users/philipbradley/bin/google-cloud-sdk/path.zsh.inc ]; then
+  source '/Users/philipbradley/bin/google-cloud-sdk/path.zsh.inc'
+fi
 
-# The next line enables shell command completion for gcloud.
-source '/Users/philip/Downloads/google-cloud-sdk/completion.zsh.inc'
