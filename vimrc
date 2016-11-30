@@ -18,6 +18,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 "my bundles here:
+Plugin 'lambdatoast/elm.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-surround'
@@ -159,6 +160,7 @@ map <leader>gh :CtrlPT app/helpers<cr>
 map <leader>gl :CtrlP lib<cr>
 map <leader>gsc :CtrlP spec/controllers<cr>
 map <leader>gsm :CtrlP spec/models<cr>
+map <leader>gsf :CtrlP spec/features<cr>
 
 "rails vim quicker mappings
 map <Leader>c :Econtroller 
@@ -246,6 +248,9 @@ noremap <S-h> gT
 
 "quit files with leader q
 nnoremap  <leader>q :q<cr>
+
+"save files with leader s
+nnoremap <leader>s :w<cr>
 
 
 "map <leader>w to open a new vsplit and switch to it

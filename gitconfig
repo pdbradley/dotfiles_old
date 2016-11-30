@@ -2,7 +2,7 @@
    name = Philip Bradley
    email = pdbradley@gmail.com
 [core]
-	autocrlf = input
+	autocrlf = false
 	safecrlf = true
 	excludesfile = ~/.gitignore
 	editor = /usr/bin/vim
