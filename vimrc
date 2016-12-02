@@ -39,7 +39,7 @@ Plugin 'danro/rename.vim'
 Plugin 'tpope/vim-rails.git'
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'mileszs/ack.vim'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'vim-scripts/ZoomWin'
 Plugin 'scrooloose/syntastic'
 Plugin 'kana/vim-fakeclip'
@@ -120,7 +120,7 @@ filetype plugin on
 
 map <Leader>l :silent !chrome-cli reload<cr>
 " Customizations
-set relativenumber
+"set relativenumber
 "set number
 set nocompatible
 set showmatch
@@ -260,13 +260,21 @@ nnoremap <leader>h <C-w>s<C-w>j
 "get to Ack quickly with leader a
 nnoremap <leader>a :Ack
 
+"WHY WONT ripgrep and ctrlp stop showing the full path and matching on it???!!!
+"trying out ripgrep...use ag instead of ack with ack.vim; -i means case insensitive
+" if executable('rg')
+"     let g:ctrlp_user_command = 'rg --files "" %s'
+"     let g:ctrlp_use_caching = 0
+"     let g:ctrlp_working_path_mode = 'ra'
+"     let g:ctrlp_switch_buffer = 'et'
+" endif
+
 "use ag instead of ack with ack.vim; -i means case insensitive
 if executable('ag')
-    set grepprg=ag\ --nogroup\ --nocolor
-    " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
     let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-    " ag is fast enough that CtrlP doesn't need to cache
     let g:ctrlp_use_caching = 0
+    let g:ctrlp_working_path_mode = 'ra'
+    let g:ctrlp_switch_buffer = 'et'
 endif
 
 let g:ackprg = 'ag -i --nogroup --nocolor --column --ignore-dir log --ignore-dir versions'
