@@ -262,20 +262,20 @@ nnoremap <leader>a :Ack
 
 "WHY WONT ripgrep and ctrlp stop showing the full path and matching on it???!!!
 "trying out ripgrep...use ag instead of ack with ack.vim; -i means case insensitive
-" if executable('rg')
-"     let g:ctrlp_user_command = 'rg --files "" %s'
-"     let g:ctrlp_use_caching = 0
-"     let g:ctrlp_working_path_mode = 'ra'
-"     let g:ctrlp_switch_buffer = 'et'
-" endif
-
-"use ag instead of ack with ack.vim; -i means case insensitive
-if executable('ag')
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+if executable('rg')
+    let g:ctrlp_user_command = 'rg --files %s'
     let g:ctrlp_use_caching = 0
     let g:ctrlp_working_path_mode = 'ra'
     let g:ctrlp_switch_buffer = 'et'
 endif
+
+"use ag instead of ack with ack.vim; -i means case insensitive
+" if executable('ag')
+"     let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+"     let g:ctrlp_use_caching = 0
+"     let g:ctrlp_working_path_mode = 'ra'
+"     let g:ctrlp_switch_buffer = 'et'
+" endif
 
 let g:ackprg = 'ag -i --nogroup --nocolor --column --ignore-dir log --ignore-dir versions'
 
