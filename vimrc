@@ -277,7 +277,8 @@ endif
 "     let g:ctrlp_switch_buffer = 'et'
 " endif
 
-let g:ackprg = 'ag -i --nogroup --nocolor --column --ignore-dir log --ignore-dir versions'
+"let g:ackprg = 'ag -i --nogroup --nocolor --column --ignore-dir log --ignore-dir versions'
+let g:ackprg = 'rg --vimgrep --no-heading'
 
 nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>N :NERDTreeFind<CR>
