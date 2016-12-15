@@ -18,6 +18,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 "my bundles here:
+Plugin 'lambdatoast/elm.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-surround'
@@ -159,6 +160,8 @@ map <leader>gh :CtrlPT app/helpers<cr>
 map <leader>gl :CtrlP lib<cr>
 map <leader>gsc :CtrlP spec/controllers<cr>
 map <leader>gsm :CtrlP spec/models<cr>
+
+set wildignore+=*/cms_fixtures/*
 
 "rails vim quicker mappings
 map <Leader>c :Econtroller 
