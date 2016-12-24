@@ -33,9 +33,8 @@ Plugin 'xolox/vim-easytags'
 Plugin 'stefanoverna/vim-i18n.git'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'pdbradley/vim-tmux-runner'
+Plugin 'tpope/vim-dispatch'
 Plugin 'danro/rename.vim'
-"Plugin 'justinmk/vim-sneak'
 Plugin 'tpope/vim-rails.git'
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'mileszs/ack.vim'
@@ -94,7 +93,10 @@ map <Leader>s :call RunNearestSpec()<CR>
 "map <Leader>l :call RunLastSpec()<CR>
 map <Leader>* :call RunAllSpecs()<CR>
 "let g:rspec_command = 'call VimuxRunCommand("bundle exec rspec {spec}\n")'
-let g:rspec_command = "VtrSendCommandToRunner bundle exec spring rspec --format progress --require ~/code/rspec_support/quickfix_formatter.rb --format QuickfixFormatter --out quickfix.out {spec}\n"
+let g:rspec_command = "Dispatch bundle exec spring rspec --format progress --require ~/code/rspec_support/quickfix_formatter.rb --format QuickfixFormatter --out quickfix.out {spec}"
+
+let g:dispatch_tmux_height = 20
+let g:dispatch_quickfix_height = 20
 
 " opens the quickfix file and window
 :map <leader>j :cg quickfix.out \| cwindow<CR>
@@ -120,7 +122,7 @@ filetype plugin on
 
 map <Leader>l :silent !chrome-cli reload<cr>
 " Customizations
-"set relativenumber
+set relativenumber
 "set number
 set nocompatible
 set showmatch
@@ -230,7 +232,6 @@ inoremap jj <ESC>
 set noesckeys
 
 "some nice hashrocket ones
-
 " cp copies and pastes the present paragraph (method)
 nnoremap cp yap<S-}>p
 
@@ -252,7 +253,7 @@ noremap <S-h> gT
 nnoremap  <leader>q :q<cr>
 
 "save files with leader s
-nnoremap <leader>s :w<cr>
+nnoremap <leader>S :w<cr>
 
 
 "map <leader>w to open a new vsplit and switch to it
