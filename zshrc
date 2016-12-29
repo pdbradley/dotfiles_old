@@ -23,6 +23,8 @@ export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="/usr/local/mysql/bin:$PATH"
 export PATH="/Applications/Postgres.app/Contents/Versions/9.4/bin:$PATH"
 
+export EDITOR='vim'
+
 
 autoload -Uz compinit && compinit
 
@@ -45,3 +47,6 @@ if [ -f /Users/philipbradley/bin/google-cloud-sdk/path.zsh.inc ]; then
   source '/Users/philipbradley/bin/google-cloud-sdk/path.zsh.inc'
 fi
 
+source ~/bin/tmuxinator.zsh
+
+bindkey "^P" up-line-or-search
