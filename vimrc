@@ -90,7 +90,7 @@ map <Leader>retag :!ctags -R --exclude=.bundle
 "Rspec.vim mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
-"map <Leader>l :call RunLastSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
 map <Leader>* :call RunAllSpecs()<CR>
 "let g:rspec_command = 'call VimuxRunCommand("bundle exec rspec {spec}\n")'
 let g:rspec_command = "Dispatch bundle exec spring rspec --format progress --require ~/code/rspec_support/quickfix_formatter.rb --format QuickfixFormatter --out quickfix.out {spec}"
@@ -120,7 +120,7 @@ syntax on
 filetype off
 filetype plugin on
 
-map <Leader>l :silent !chrome-cli reload<cr>
+"map <Leader>l :silent !chrome-cli reload<cr>
 " Customizations
 set relativenumber
 "set number
@@ -330,6 +330,10 @@ vmap <Leader>z :call I18nTranslateString()<CR>
 vmap <Leader>dt :call I18nDisplayTranslation()<CR>
 
 colorscheme ron
+
+"Insert new lines after current WITHOUT going into normal mode
+nmap <CR> o<Esc>
+
 
 "Temp settings to jump back and forth through commits
 map <leader>( :silent !git gchild<CR>:redraw!<CR>

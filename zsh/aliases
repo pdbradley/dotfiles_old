@@ -13,6 +13,7 @@ alias gad='git add --all .'
 alias gca='git commit -a'
 alias gcl='git clone'
 alias gcm="git commit -m"
+alias gundo="git reset --hard HEAD"
 alias gco='git checkout'
 alias gd='git diff'
 alias gdm='git diff master'
