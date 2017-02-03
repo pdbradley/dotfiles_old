@@ -88,15 +88,11 @@ let g:easytags_dynamic_files = 2
 map <Leader>retag :!ctags -R --exclude=.bundle
 
 "Rspec.vim mappings
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>* :call RunAllSpecs()<CR>
-"let g:rspec_command = 'call VimuxRunCommand("bundle exec rspec {spec}\n")'
-let g:rspec_command = "Dispatch bundle exec spring rspec --format progress --require ~/code/rspec_support/quickfix_formatter.rb --format QuickfixFormatter --out quickfix.out {spec}"
-
-let g:dispatch_tmux_height = 20
-let g:dispatch_quickfix_height = 20
+map <Leader>t :call RunCurrentSpecFile()<CR>:redraw!<CR>
+map <Leader>s :call RunNearestSpec()<CR>:redraw!<CR>
+map <Leader>l :call RunLastSpec()<CR>:redraw!<CR>
+map <Leader>* :call RunAllSpecs()<CR>:redraw!<CR>
+let g:rspec_command = ":silent !tmux send-keys -t tests 'clear' C-m 'bundle exec spring rspec --format progress --require ~/code/rspec_support/quickfix_formatter.rb --format QuickfixFormatter --out quickfix.out {spec}' C-m"
 
 " opens the quickfix file and window
 :map <leader>j :cg quickfix.out \| cwindow<CR>
