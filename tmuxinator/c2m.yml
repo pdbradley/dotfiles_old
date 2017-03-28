@@ -1,0 +1,48 @@
+# ~/.tmuxinator/c2m.yml
+
+name: c2m
+root: ~/code/c2m/c2m_addin/
+
+# Optional tmux socket
+# socket_name: foo
+
+# Runs before everything. Use it to start daemons etc.
+pre: 
+  - open -a Google\ Chrome 'https://www.office.com/0/?auth=1'
+  - open -a Google\ Chrome 'https://docs.google.com/document/d/1NPiC5B0QG8Eq0tq8pfRJz91GV7FDHK0NXuH-RIJhryI/edit'
+  - open -a Google\ Chrome 'https://onedrive.live.com/view.aspx?resid=175F8BE090DDF0D6!140&app=Word'
+  - open -a Google\ Chrome 'https://trello.com/b/z1kxPgAG/click-2-mail'
+  - open -a Google\ Chrome 'https://stage-developers.click2mail.com/rest-api/molpro/getting-started/main'
+  - open -a Google\ Chrome 'http://base.click2mail.com/projects/microsoft-addin/issues'
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+# pre_window: rbenv shell 2.0.0-p247
+
+# Pass command line options to tmux. Useful for specifying a different tmux.conf.
+# tmux_options: -f ~/.tmux.mac.conf
+
+# Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
+# tmux_command: byobu
+
+# Specifies (by name or index) which window will be selected on project startup. If not set, the first window is used.
+# startup_window: editor
+
+# Specitifes (by index) which pane of the specified window will be selected on project startup. If not set, the first pane is used.
+# startup_pane: 1
+
+# Controls whether the tmux session should be attached to automatically. Defaults to true.
+# attach: false
+
+# Runs after everything. Use it to attach to tmux with custom options etc.
+# post: tmux -CC attach -t c2m
+
+windows:
+  - editor: vim
+  - tests: ls
+  - server:
+      layout: even-horizontal
+      panes:
+        - bundle exec rails s
+        - ./ngrok
+  - logs: tail -f log/development.log
+  - redis: redis-server
