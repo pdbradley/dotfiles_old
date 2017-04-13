@@ -20,6 +20,11 @@ alias gdm='git diff master'
 alias gpom='git pull origin master'
 alias gpush='echo "Use gp!" && git push'
 alias gp='git push'
+
+gacp (){
+    git add -A && git commit -m "$1" && git push
+}
+  
 alias herkou='heroku'
 alias js='jekyll serve'
 alias killruby='killall -9 ruby'
