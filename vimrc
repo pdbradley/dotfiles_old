@@ -118,8 +118,8 @@ filetype plugin on
 
 "map <Leader>l :silent !chrome-cli reload<cr>
 " Customizations
-set relativenumber
-"set number
+" set relativenumber
+set number
 set nocompatible
 set showmatch
 set ruler "show cursor position all the time
@@ -329,11 +329,12 @@ vmap <Leader>dt :call I18nDisplayTranslation()<CR>
 
 colorscheme ron
 
-"Insert new lines after current WITHOUT going into normal mode
-nmap <CR> o<Esc>
+"Insert new lines after current WITHOUT going into normal mode NOPE this broke quickfix
+"nmap <CR> o<Esc>
 
 
 "Temp settings to jump back and forth through commits
 map <leader>( :silent !git gchild<CR>:redraw!<CR>
 map <leader>) :silent !git checkout HEAD^<CR>:redraw!<CR>
 set autoread
+set modifiable
