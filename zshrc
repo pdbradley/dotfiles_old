@@ -31,6 +31,7 @@ export EDITOR='vim'
 autoload -Uz compinit && compinit
 
 export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/bin/jruby-9.1.2.0/bin:$PATH"
 
 export VMAIL_VIM="mvim"
 
