@@ -37,7 +37,11 @@ pre:
 # post: tmux -CC attach -t c2m
 
 windows:
-  - editor: vim
+  - editor: 
+      layout: even-horizontal
+      panes:
+        - vim
+        - clear
   - tests: ls
   - server:
       layout: even-horizontal

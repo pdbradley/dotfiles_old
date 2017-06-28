@@ -1,8 +1,16 @@
 set nocompatible 
+filetype plugin indent on  "required!
+
+set exrc
+
 let mapleader = " "
 "set omnifunc=syntaxcomplete#Complete
 set complete=.,b,u,]
 
+"scrolling speed
+set ttyfast
+set ttyscroll=3
+set lazyredraw
 
 set backspace=2
 "no backups since we are always in git (almost)
@@ -52,7 +60,6 @@ Plugin 'honza/vim-snippets'
 
 
 call vundle#end()
-filetype plugin indent on  "required!
 
 "VTR (vim tmux runner) shortcuts:
 let g:VtrPercentage = 50
@@ -92,7 +99,7 @@ map <Leader>t :call RunCurrentSpecFile()<CR>:redraw!<CR>
 map <Leader>s :call RunNearestSpec()<CR>:redraw!<CR>
 map <Leader>l :call RunLastSpec()<CR>:redraw!<CR>
 map <Leader>* :call RunAllSpecs()<CR>:redraw!<CR>
-let g:rspec_command = ":silent !tmux send-keys -t tests 'clear' C-m 'bundle exec spring rspec --format progress --require ~/code/rspec_support/quickfix_formatter.rb --format QuickfixFormatter --out quickfix.out {spec}' C-m"
+let g:rspec_command = ":silent !tmux send-keys -t 1 'clear' C-m 'bundle exec spring rspec --format progress --require ~/code/rspec_support/quickfix_formatter.rb --format QuickfixFormatter --out quickfix.out {spec}' C-m"
 
 " opens the quickfix file and window
 :map <leader>j :cg quickfix.out \| cwindow<CR>
@@ -186,8 +193,10 @@ map <Leader>corner :sp ~/Dropbox/work/notes/cornerstone-notes.txt<cr>
 map <Leader>pa  :sp ~/Dropbox/work/notes/annoyances-notes.txt<cr>
 map <Leader>pt :sp ~/Dropbox/work/notes/todo.txt<cr>
 
-map <Leader>vimrc :sp $MYVIMRC<cr>
-map <Leader>reload :source $MYVIMRC<cr>
+"vimrc stuff
+"supposedly this loads the vimrc whenever you save it
+au BufWritePost .vimrc so $MYVIMRC
+map <Leader>V :e $MYVIMRC<cr>
 
 
 "these two lines help w search.  case ignored unless search string has
@@ -331,6 +340,14 @@ colorscheme ron
 
 "Insert new lines after current WITHOUT going into normal mode NOPE this broke quickfix
 "nmap <CR> o<Esc>
+
+"highlight debugging stuff so you don't miss it
+au BufEnter *.rb syn match error contained "\<byebug\>"
+au BufEnter *.rb syn match error contained "\<binding.pry\>"
+au BufEnter *.rb syn match error contained "\<debugger\>"
+
+"update any file you leave--always saved
+autocmd BufLeave,FocusLost * silent! update
 
 
 "Temp settings to jump back and forth through commits
