@@ -8,12 +8,6 @@ root: ~/code/c2m/c2m_addin/
 
 # Runs before everything. Use it to start daemons etc.
 pre: 
-  - open -a Google\ Chrome 'https://www.office.com/0/?auth=1'
-  - open -a Google\ Chrome 'https://docs.google.com/document/d/1NPiC5B0QG8Eq0tq8pfRJz91GV7FDHK0NXuH-RIJhryI/edit'
-  - open -a Google\ Chrome 'https://onedrive.live.com/view.aspx?resid=175F8BE090DDF0D6!140&app=Word'
-  - open -a Google\ Chrome 'https://trello.com/b/z1kxPgAG/click-2-mail'
-  - open -a Google\ Chrome 'https://stage-developers.click2mail.com/rest-api/molpro/getting-started/main'
-  - open -a Google\ Chrome 'http://base.click2mail.com/projects/microsoft-addin/issues'
 
 # Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
 # pre_window: rbenv shell 2.0.0-p247
@@ -37,16 +31,12 @@ pre:
 # post: tmux -CC attach -t c2m
 
 windows:
-  - editor: 
-      layout: even-horizontal
-      panes:
-        - vim
-        - clear
+  - editor: vim
   - tests: ls
   - server:
       layout: even-horizontal
       panes:
         - bundle exec rails s
-        - ngrok start c2m
+        - ./ngrok
   - logs: tail -f log/development.log
   - redis: redis-server
