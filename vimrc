@@ -118,8 +118,7 @@ filetype plugin on
 
 "map <Leader>l :silent !chrome-cli reload<cr>
 " Customizations
-set relativenumber
-"set number
+set number
 set nocompatible
 set showmatch
 set ruler "show cursor position all the time
