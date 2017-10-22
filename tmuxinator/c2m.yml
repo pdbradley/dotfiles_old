@@ -11,7 +11,6 @@ pre:
   - open -a Google\ Chrome 'https://www.office.com/0/?auth=1'
   - open -a Google\ Chrome 'https://docs.google.com/document/d/1NPiC5B0QG8Eq0tq8pfRJz91GV7FDHK0NXuH-RIJhryI/edit'
   - open -a Google\ Chrome 'https://onedrive.live.com/view.aspx?resid=175F8BE090DDF0D6!140&app=Word'
-  - open -a Google\ Chrome 'https://trello.com/b/z1kxPgAG/click-2-mail'
   - open -a Google\ Chrome 'https://stage-developers.click2mail.com/rest-api/molpro/getting-started/main'
   - open -a Google\ Chrome 'http://base.click2mail.com/projects/microsoft-addin/issues'
 

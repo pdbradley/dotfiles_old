@@ -99,7 +99,7 @@ map <Leader>t :call RunCurrentSpecFile()<CR>:redraw!<CR>
 map <Leader>s :call RunNearestSpec()<CR>:redraw!<CR>
 map <Leader>l :call RunLastSpec()<CR>:redraw!<CR>
 map <Leader>* :call RunAllSpecs()<CR>:redraw!<CR>
-let g:rspec_command = ":silent !tmux send-keys -t 1 'clear' C-m 'bundle exec spring rspec --format progress --require ~/code/rspec_support/quickfix_formatter.rb --format QuickfixFormatter --out quickfix.out {spec}' C-m"
+let g:rspec_command = ":silent !tmux send-keys -t 1 'clear' C-m 'bundle exec spring rspec --format progress --require ~/code/rspec_support/quickfix_formatter.rb --format QuickfixFormatter --out quickfix.out {spec} --order rand' C-m"
 
 " opens the quickfix file and window
 :map <leader>j :cg quickfix.out \| cwindow<CR>
@@ -292,6 +292,9 @@ nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>N :NERDTreeFind<CR>
 
 
+"movement
+nmap j gj
+nmap k gk
 "move around your splits with ctrl hjkl which b/c capslock is assigned to ctrl
 "works well
 nnoremap <C-h> <C-w>h
