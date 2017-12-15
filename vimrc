@@ -312,7 +312,7 @@ vmap <C-c> :w !pbcopy<CR><CR>
 set clipboard=unnamed
 
 "stop autocommenting of the next line under a comment
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+"autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 "better instapaste (thanks orenstein!)
 map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>

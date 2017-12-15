@@ -46,3 +46,5 @@
   childsha = !git rev-list HEAD..master | tail -n 1
   gchild = !git checkout $(git childsha)
 
+[gitreview]
+	username = pdbradley
