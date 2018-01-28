@@ -45,6 +45,9 @@ export NVM_DIR="/Users/philip/.nvm"
 # added by travis gem
 [ -f /Users/philip/.travis/travis.sh ] && source /Users/philip/.travis/travis.sh
 
+# autojump
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f /Users/philipbradley/bin/google-cloud-sdk/path.zsh.inc ]; then
   source '/Users/philipbradley/bin/google-cloud-sdk/path.zsh.inc'
