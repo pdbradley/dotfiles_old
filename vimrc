@@ -26,12 +26,15 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 "my bundles here:
+Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'lambdatoast/elm.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-rails.git'
+Plugin 'tpope/vim-projectionist.git'
 Plugin 'vim-scripts/ReplaceWithRegister'
 Plugin 'kana/vim-textobj-user'
 Plugin 'nelstrom/vim-textobj-rubyblock'
@@ -43,7 +46,6 @@ Plugin 'thoughtbot/vim-rspec'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tpope/vim-dispatch'
 Plugin 'danro/rename.vim'
-Plugin 'tpope/vim-rails.git'
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'mileszs/ack.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -92,14 +94,14 @@ let g:fakeclip_terminal_multiplexer_type = 'tmux'
 set tags=./tags
 "don't write to the global ctags file
 let g:easytags_dynamic_files = 2
-map <Leader>retag :!ctags -R --exclude=.bundle
+map <Leader>retag :!ctags -R --exclude=.bundle,*.sql
 
 "Rspec.vim mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>:redraw!<CR>
 map <Leader>s :call RunNearestSpec()<CR>:redraw!<CR>
 map <Leader>l :call RunLastSpec()<CR>:redraw!<CR>
 map <Leader>* :call RunAllSpecs()<CR>:redraw!<CR>
-let g:rspec_command = ":silent !tmux send-keys -t 1 'clear' C-m 'bundle exec spring rspec --format progress --require ~/code/rspec_support/quickfix_formatter.rb --format QuickfixFormatter --out quickfix.out {spec} --order rand' C-m"
+let g:rspec_command = ":silent !tmux send-keys -t 1 'clear' C-m 'bundle exec spring rspec --format progress --require ~/code/rspec_support/quickfix_formatter.rb --format QuickfixFormatter --out quickfix.out --order rand {spec}' C-m"
 
 " opens the quickfix file and window
 :map <leader>j :cg quickfix.out \| cwindow<CR>
@@ -322,6 +324,11 @@ map <leader>y "*y
 
 "ack on the word under the cursor
 map <leader>k :Ack <C-R><C-W><CR>
+
+"projectionist heuristics for alternates
+
+
+let g:projectionist_heuristics = { "app/lib/*.rb": {"alternate": "spec/lib/{}_spec.rb"} }
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " OPEN FILES IN DIRECTORY OF CURRENT FILE  thanks bernhardt
