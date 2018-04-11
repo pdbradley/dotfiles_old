@@ -39,8 +39,8 @@ export VMAIL_VIM="mvim"
 source $HOME/dotfiles/zsh/prompt
 source $HOME/dotfiles/zsh/aliases
 
-export NVM_DIR="/Users/philip/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+#export NVM_DIR="/Users/philip/.nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # added by travis gem
 [ -f /Users/philip/.travis/travis.sh ] && source /Users/philip/.travis/travis.sh

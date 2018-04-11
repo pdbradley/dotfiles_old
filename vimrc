@@ -1,6 +1,7 @@
 set nocompatible 
 filetype plugin indent on  "required!
 
+
 set exrc
 
 let mapleader = " "
@@ -94,17 +95,18 @@ let g:fakeclip_terminal_multiplexer_type = 'tmux'
 set tags=./tags
 "don't write to the global ctags file
 let g:easytags_dynamic_files = 2
-map <Leader>retag :!ctags -R --exclude=.bundle,*.sql
+map <Leader>retag :!ripper-tags -R
 
 "Rspec.vim mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>:redraw!<CR>
 map <Leader>s :call RunNearestSpec()<CR>:redraw!<CR>
 map <Leader>l :call RunLastSpec()<CR>:redraw!<CR>
 map <Leader>* :call RunAllSpecs()<CR>:redraw!<CR>
-let g:rspec_command = ":silent !tmux send-keys -t 1 'clear' C-m 'bundle exec spring rspec --format progress --require ~/code/rspec_support/quickfix_formatter.rb --format QuickfixFormatter --out quickfix.out --order rand {spec}' C-m"
+let g:rspec_command = ":silent !tmux send-keys -t 1 'clear' C-m 'bundle exec spring rspec --format progress --require ~/code/rspec_support/quickfix_formatter.rb --format QuickfixFormatter --out ~/quickfix.out --order rand {spec}' C-m"
 
 " opens the quickfix file and window
-:map <leader>j :cg quickfix.out \| cwindow<CR>
+":map <leader>j :cg quickfix.out \| cwindow<CR>
+:map <leader>j :cg ~/quickfix.out \| cwindow<CR>
 
 "disable folding by default
 set nofoldenable
@@ -311,7 +313,9 @@ au BufReadPost *.dwt set syntax=html
 vmap <C-x> :!pbcopy<CR>
 vmap <C-c> :w !pbcopy<CR><CR>
 " use the system clipboard
-set clipboard=unnamed
+if $TMUX == ''
+  set clipboard=unnamed
+endif
 
 "stop autocommenting of the next line under a comment
 "autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
