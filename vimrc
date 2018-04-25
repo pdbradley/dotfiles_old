@@ -10,7 +10,7 @@ set complete=.,b,u,]
 
 "scrolling speed
 set ttyfast
-set ttyscroll=3
+"set ttyscroll=3  neovim doesnt like this
 set lazyredraw
 
 set backspace=2
@@ -238,7 +238,7 @@ augroup END
 inoremap jj <ESC>
 
 "no delay when hitting esc
-set noesckeys
+" set noesckeys  neovim doesnt like this either
 
 "some nice hashrocket ones
 " cp copies and pastes the present paragraph (method)
@@ -313,9 +313,9 @@ au BufReadPost *.dwt set syntax=html
 vmap <C-x> :!pbcopy<CR>
 vmap <C-c> :w !pbcopy<CR><CR>
 " use the system clipboard
-if $TMUX == ''
-  set clipboard=unnamed
-endif
+"if $TMUX == ''
+" set clipboard+=unnamedplus
+"endif
 
 "stop autocommenting of the next line under a comment
 "autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
@@ -369,3 +369,15 @@ map <leader>( :silent !git gchild<CR>:redraw!<CR>
 map <leader>) :silent !git checkout HEAD^<CR>:redraw!<CR>
 set autoread
 set modifiable
+
+"tmux nvim clipboard stuff
+function! ClipboardYank()
+  call system('pbcopy', @@)
+endfunction
+function! ClipboardPaste()
+  let @@ = system('pbpaste')
+endfunction
+
+vnoremap <silent> y y:call ClipboardYank()<cr>
+vnoremap <silent> d d:call ClipboardYank()<cr>
+nnoremap <silent> p :call ClipboardPaste()<cr>p
