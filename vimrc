@@ -41,7 +41,7 @@ Plugin 'kana/vim-textobj-user'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'pangloss/vim-javascript'
 Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-easytags'
+" Plugin 'xolox/vim-easytags'
 Plugin 'stefanoverna/vim-i18n.git'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'christoomey/vim-tmux-navigator'
@@ -92,9 +92,9 @@ let g:fakeclip_terminal_multiplexer_type = 'tmux'
 
 "tags easytags ctags settings
 "use a ctags file specific to the project
-set tags=./tags
+" set tags=~/tmp/tags;
 "don't write to the global ctags file
-let g:easytags_dynamic_files = 2
+" let g:easytags_dynamic_files = 2
 map <Leader>retag :!ripper-tags -R
 
 "Rspec.vim mappings
