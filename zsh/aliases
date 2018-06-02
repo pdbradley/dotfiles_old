@@ -28,6 +28,7 @@ alias pc='production-console'
 alias rc='bin/rails console'
 alias remigrate='rake db:migrate && rake db:migrate:redo && rake db:schema:dump && rake db:test:prepare'
 alias rdm="bin/rake db:migrate"
+alias rrg="rake routes | grep "
 alias rdtp="bin/rake db:test:prepare"
 alias rs='bundle install && rails server -p 3000'
 alias sc='staging-console'

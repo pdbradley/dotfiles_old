@@ -21,7 +21,7 @@ eval "$(rbenv init -)"
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="/usr/local/mysql/bin:$PATH"
-export PATH="/Applications/Postgres.app/Contents/Versions/9.4/bin:$PATH"
+export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 
 export PKG_CONFIG_PATH="/usr/local/opt/pkg-config:$PKG_CONFIG_PATH"
 

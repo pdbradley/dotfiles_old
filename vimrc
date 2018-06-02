@@ -64,18 +64,6 @@ Plugin 'honza/vim-snippets'
 
 call vundle#end()
 
-"VTR (vim tmux runner) shortcuts:
-let g:VtrPercentage = 50
-let g:VtrOrientation = 'h'
-let g:VtrClearOnReatach = 0
-map <Leader>vo :VtrOpenRunner<CR>
-map <Leader>vk :VtrKillRunner<CR>
-map <Leader>vf :VtrFocusRunner<CR>
-map <Leader>vd :VtrDetachRunner<CR>
-
-map <Leader>x :VtrSendFile<CR>
-
-
 
 "syntastic checkers to enable
 let g:syntastic_coffee_checkers = ['coffeelint', 'coffee']
@@ -380,4 +368,4 @@ endfunction
 
 vnoremap <silent> y y:call ClipboardYank()<cr>
 vnoremap <silent> d d:call ClipboardYank()<cr>
-nnoremap <silent> p :call ClipboardPaste()<cr>p
+nnoremap <silent> cp :call ClipboardPaste()<cr>p
