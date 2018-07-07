@@ -223,7 +223,7 @@ augroup CursorLineOnlyInActiveWindow
 augroup END
 
 "get out of insert mode with a super seldom used character sequence
-inoremap jj <ESC>
+inoremap jk <ESC>
 
 "no delay when hitting esc
 " set noesckeys  neovim doesnt like this either
