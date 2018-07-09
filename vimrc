@@ -224,6 +224,7 @@ augroup END
 
 "get out of insert mode with a super seldom used character sequence
 inoremap jk <ESC>
+inoremap jj <ESC>
 
 "no delay when hitting esc
 " set noesckeys  neovim doesnt like this either
@@ -369,3 +370,53 @@ endfunction
 vnoremap <silent> y y:call ClipboardYank()<cr>
 vnoremap <silent> d d:call ClipboardYank()<cr>
 nnoremap <silent> cp :call ClipboardPaste()<cr>p
+
+let g:vim_rails_recent_model = []
+let g:vim_rails_recent_view = []
+let g:vim_rails_recent_controller = []
+let g:vim_rails_recent_depth = 3
+augroup rails_cycle
+"autocmd BufWrite * :echom "Hi"
+  autocmd!
+  autocmd BufEnter *app/controllers/* call VimRailsRecentControllerStore()
+  autocmd BufEnter *app/models/* call VimRailsRecentModelStore()
+  autocmd BufEnter *app/views/* call VimRailsRecentViewStore()
+augroup END
+
+function! VimRailsRecentControllerStore()
+  if index(g:vim_rails_recent_controller, @%) == -1
+    let g:vim_rails_recent_controller = g:vim_rails_recent_controller[0:1] + [@%]
+  endif
+endfunction
+
+function! VimRailsRecentModelStore()
+  if index(g:vim_rails_recent_model, @%) == -1
+    let g:vim_rails_recent_model = g:vim_rails_recent_model[0:1] + [@%]
+  endif
+endfunction
+
+function! VimRailsRecentViewStore()
+  if index(g:vim_rails_recent_view, @%) == -1
+    let g:vim_rails_recent_view = g:vim_rails_recent_view[0:1] + [@%]
+  endif
+endfunction
+
+function! VimRailsRecentControllerEdit()
+  let g:vim_rails_recent_controller = g:vim_rails_recent_controller[1:-1] + g:vim_rails_recent_controller[0:0]
+  execute 'edit' g:vim_rails_recent_controller[-1]
+endfunction
+
+function! VimRailsRecentModelEdit()
+  let g:vim_rails_recent_model = g:vim_rails_recent_model[1:-1] + g:vim_rails_recent_model[0:0]
+  execute 'edit' g:vim_rails_recent_model[-1]
+endfunction
+
+function! VimRailsRecentViewEdit()
+  let g:vim_rails_recent_view = g:vim_rails_recent_view[1:-1] + g:vim_rails_recent_view[0:0]
+  execute 'edit' g:vim_rails_recent_view[-1]
+endfunction
+
+:nnoremap <C-m> :call VimRailsRecentModelEdit()<cr>
+:nnoremap <C-v> :call VimRailsRecentViewEdit()<cr>
+:nnoremap <C-c> :call VimRailsRecentControllerEdit()<cr>
+:nnoremap <leader>v :source ~/.vimrc<cr>
