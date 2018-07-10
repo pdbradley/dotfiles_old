@@ -172,7 +172,7 @@ map <Leader>vm :EVmodel
 map <Leader>bb :!bundle install<cr>
 
 "git mappings
-map <Leader>gs :Gstatus<CR>
+"map <Leader>gs :Gstatus<CR>
 
 "how2 stack overflow
 "map <Leader>k :!how2 -l ruby 
@@ -333,7 +333,7 @@ map <leader>v :view %%
 runtime macros/matchit.vim
 
 "create a new file AND directory by with :E filename
-command -nargs=1 E execute('silent! !mkdir -p "$(dirname "<args>")"') <Bar> e <args>
+"command -nargs=1 E execute('silent! !mkdir -p "$(dirname "<args>")"') <Bar> e <args>
 
 "I18n plugin mappings
 vmap <Leader>z :call I18nTranslateString()<CR>
@@ -374,49 +374,31 @@ nnoremap <silent> cp :call ClipboardPaste()<cr>p
 let g:vim_rails_recent_model = []
 let g:vim_rails_recent_view = []
 let g:vim_rails_recent_controller = []
-let g:vim_rails_recent_depth = 3
+let g:vim_rails_recent_depth = 5
 augroup rails_cycle
-"autocmd BufWrite * :echom "Hi"
   autocmd!
-  autocmd BufEnter *app/controllers/* call VimRailsRecentControllerStore()
-  autocmd BufEnter *app/models/* call VimRailsRecentModelStore()
-  autocmd BufEnter *app/views/* call VimRailsRecentViewStore()
+  autocmd BufEnter *app/models/* let g:vim_rails_recent_model = VimRailsRecentStore(g:vim_rails_recent_model)
+  autocmd BufEnter *app/controllers/* let g:vim_rails_recent_controller = VimRailsRecentStore(g:vim_rails_recent_controller)
+  autocmd BufEnter *app/views/* let g:vim_rails_recent_view = VimRailsRecentStore(g:vim_rails_recent_view)
 augroup END
 
-function! VimRailsRecentControllerStore()
-  if index(g:vim_rails_recent_controller, @%) == -1
-    let g:vim_rails_recent_controller = g:vim_rails_recent_controller[0:1] + [@%]
+function! VimRailsRecentStore(buffer_list)
+  let tmp_list = a:buffer_list
+  let last_element_index = g:vim_rails_recent_depth - 2
+  if index(tmp_list, @%) == -1
+    let tmp_list = tmp_list[0:last_element_index] + [@%]
+    return tmp_list
+  else
+    return a:buffer_list
   endif
 endfunction
 
-function! VimRailsRecentModelStore()
-  if index(g:vim_rails_recent_model, @%) == -1
-    let g:vim_rails_recent_model = g:vim_rails_recent_model[0:1] + [@%]
-  endif
+function! VimRailsRecentEditCycle(buffer_list)
+  let tmp_list = a:buffer_list
+  execute 'edit' tmp_list[-1]
+  return tmp_list[1:-1] + tmp_list[0:0]
 endfunction
 
-function! VimRailsRecentViewStore()
-  if index(g:vim_rails_recent_view, @%) == -1
-    let g:vim_rails_recent_view = g:vim_rails_recent_view[0:1] + [@%]
-  endif
-endfunction
-
-function! VimRailsRecentControllerEdit()
-  let g:vim_rails_recent_controller = g:vim_rails_recent_controller[1:-1] + g:vim_rails_recent_controller[0:0]
-  execute 'edit' g:vim_rails_recent_controller[-1]
-endfunction
-
-function! VimRailsRecentModelEdit()
-  let g:vim_rails_recent_model = g:vim_rails_recent_model[1:-1] + g:vim_rails_recent_model[0:0]
-  execute 'edit' g:vim_rails_recent_model[-1]
-endfunction
-
-function! VimRailsRecentViewEdit()
-  let g:vim_rails_recent_view = g:vim_rails_recent_view[1:-1] + g:vim_rails_recent_view[0:0]
-  execute 'edit' g:vim_rails_recent_view[-1]
-endfunction
-
-:nnoremap <C-m> :call VimRailsRecentModelEdit()<cr>
-:nnoremap <C-v> :call VimRailsRecentViewEdit()<cr>
-:nnoremap <C-c> :call VimRailsRecentControllerEdit()<cr>
-:nnoremap <leader>v :source ~/.vimrc<cr>
+:nnoremap <C-m> :let g:vim_rails_recent_model = VimRailsRecentEditCycle(g:vim_rails_recent_model)<cr>
+:nnoremap <C-c> :let g:vim_rails_recent_controller = VimRailsRecentEditCycle(g:vim_rails_recent_controller)<cr>
+:nnoremap <C-v> :let g:vim_rails_recent_view = VimRailsRecentEditCycle(g:vim_rails_recent_view)<cr>
