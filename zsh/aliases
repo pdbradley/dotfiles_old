@@ -39,6 +39,7 @@ alias sync='git add -u . && git commit -m "Minor changes. Commit message skipped
 alias tail-logs='heroku logs -t'
 alias u='cd ..'
 alias vi='nvim'
+alias vim='nvim'
 alias vimx='nvim'
 alias v='nvim'
 alias t='~/bin/t --task-dir ~/Dropbox/tasks --list personaltasks'
