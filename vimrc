@@ -27,6 +27,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 "my bundles here:
+"Plugin 'pdbradley/vim-rails-recent'
 Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'lambdatoast/elm.vim'
 Plugin 'tpope/vim-fugitive'
@@ -319,9 +320,7 @@ map <leader>y "*y
 map <leader>k :Ack <C-R><C-W><CR>
 
 "projectionist heuristics for alternates
-
-
-let g:projectionist_heuristics = { "app/lib/*.rb": {"alternate": "spec/lib/{}_spec.rb"} }
+"let g:projectionist_heuristics = { "app/*.rb": {"alternate": "spec/{}_spec.rb"} }
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " OPEN FILES IN DIRECTORY OF CURRENT FILE  thanks bernhardt
@@ -371,34 +370,16 @@ vnoremap <silent> y y:call ClipboardYank()<cr>
 vnoremap <silent> d d:call ClipboardYank()<cr>
 nnoremap <silent> cp :call ClipboardPaste()<cr>p
 
-let g:vim_rails_recent_model = []
-let g:vim_rails_recent_view = []
-let g:vim_rails_recent_controller = []
-let g:vim_rails_recent_depth = 5
-augroup rails_cycle
+
+" :nnoremap <C-m> :let g:vim_rails_recent_model = VimRailsRecentEditCycle(g:vim_rails_recent_model)<cr>
+" :nnoremap <C-c> :let g:vim_rails_recent_controller = VimRailsRecentEditCycle(g:vim_rails_recent_controller)<cr>
+" :nnoremap <C-v> :let g:vim_rails_recent_view = VimRailsRecentEditCycle(g:vim_rails_recent_view)<cr>
+
+"this creates necessary folders if a buffer's path doesn't exist
+augroup Mkdir
   autocmd!
-  autocmd BufEnter *app/models/* let g:vim_rails_recent_model = VimRailsRecentStore(g:vim_rails_recent_model)
-  autocmd BufEnter *app/controllers/* let g:vim_rails_recent_controller = VimRailsRecentStore(g:vim_rails_recent_controller)
-  autocmd BufEnter *app/views/* let g:vim_rails_recent_view = VimRailsRecentStore(g:vim_rails_recent_view)
+  autocmd BufWritePre *
+    \ if !isdirectory(expand("<afile>:p:h")) |
+        \ call mkdir(expand("<afile>:p:h"), "p") |
+    \ endif
 augroup END
-
-function! VimRailsRecentStore(buffer_list)
-  let tmp_list = a:buffer_list
-  let last_element_index = g:vim_rails_recent_depth - 2
-  if index(tmp_list, @%) == -1
-    let tmp_list = tmp_list[0:last_element_index] + [@%]
-    return tmp_list
-  else
-    return a:buffer_list
-  endif
-endfunction
-
-function! VimRailsRecentEditCycle(buffer_list)
-  let tmp_list = a:buffer_list
-  execute 'edit' tmp_list[-1]
-  return tmp_list[1:-1] + tmp_list[0:0]
-endfunction
-
-:nnoremap <C-m> :let g:vim_rails_recent_model = VimRailsRecentEditCycle(g:vim_rails_recent_model)<cr>
-:nnoremap <C-c> :let g:vim_rails_recent_controller = VimRailsRecentEditCycle(g:vim_rails_recent_controller)<cr>
-:nnoremap <C-v> :let g:vim_rails_recent_view = VimRailsRecentEditCycle(g:vim_rails_recent_view)<cr>
