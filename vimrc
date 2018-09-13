@@ -42,6 +42,8 @@ Plugin 'kana/vim-textobj-user'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'pangloss/vim-javascript'
 Plugin 'xolox/vim-misc'
+Plugin 'jgdavey/tslime.vim'
+Plugin 'lifepillar/pgsql.vim'
 " Plugin 'xolox/vim-easytags'
 Plugin 'stefanoverna/vim-i18n.git'
 Plugin 'thoughtbot/vim-rspec'
@@ -84,7 +86,8 @@ let g:fakeclip_terminal_multiplexer_type = 'tmux'
 " set tags=~/tmp/tags;
 "don't write to the global ctags file
 " let g:easytags_dynamic_files = 2
-map <Leader>retag :!ripper-tags -R
+"map <Leader>retag :!ripper-tags -R
+map <Leader>retag :!ctags -R ./.git/tags .
 
 "Rspec.vim mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>:redraw!<CR>
@@ -95,7 +98,9 @@ let g:rspec_command = ":silent !tmux send-keys -t 1 'clear' C-m 'bundle exec spr
 
 " opens the quickfix file and window
 ":map <leader>j :cg quickfix.out \| cwindow<CR>
-:map <leader>j :cg ~/quickfix.out \| cwindow<CR>
+map <leader>j :cg ~/quickfix.out \| cwindow<CR>
+
+map <leader>x :execute 'silent !tmux send-keys -t 1 ls C-m'<CR>
 
 "disable folding by default
 set nofoldenable
@@ -159,6 +164,8 @@ map <leader>gl :CtrlP lib<cr>
 map <leader>gsc :CtrlP spec/controllers<cr>
 map <leader>gsm :CtrlP spec/models<cr>
 map <leader>gsf :CtrlP spec/features<cr>
+
+map <leader>. :CtrlPTag<cr>
 
 set wildignore+=*/cms_fixtures/*
 
@@ -383,3 +390,9 @@ augroup Mkdir
         \ call mkdir(expand("<afile>:p:h"), "p") |
     \ endif
 augroup END
+
+
+vmap <leader>x <Plug>SendSelectionToTmux<cr>
+
+let g:sql_type_default = 'pgsql'
+

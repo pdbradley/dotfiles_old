@@ -45,6 +45,8 @@
   fall = "!for remote in $(git remote); do echo "Fetching $remote"; git fetch "$remote"; done"
   childsha = !git rev-list HEAD..master | tail -n 1
   gchild = !git checkout $(git childsha)
+  recent = for-each-ref --sort=-committerdate refs/heads/
+
 
 [gitreview]
 	username = pdbradley
