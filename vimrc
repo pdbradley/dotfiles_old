@@ -2,6 +2,7 @@ set nocompatible
 filetype plugin indent on  "required!
 
 
+
 set exrc
 
 let mapleader = " "
@@ -19,12 +20,18 @@ set nobackup
 set nowritebackup
 set noswapfile
 
+" If a file is changed outside of vim, automatically reload it without asking
+set autoread
+
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 "Let Vundle manage Vundle
 "required
 Plugin 'VundleVim/Vundle.vim'
+
+
+
 
 "my bundles here:
 "Plugin 'pdbradley/vim-rails-recent'
@@ -57,6 +64,7 @@ Plugin 'vim-scripts/ZoomWin'
 Plugin 'scrooloose/syntastic'
 Plugin 'kana/vim-fakeclip'
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'mickaobrien/vim-stackoverflow'
 
 "all this stuff below is for snippets
 Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -107,6 +115,9 @@ set nofoldenable
 
 "tabs
 map <C-t> <esc>:tabnew<CR>
+
+" Insert a hash rocket with <c-l>
+imap <c-l> <space>=><space>
 
 "indentation matters...
 set autoindent
@@ -173,11 +184,15 @@ set wildignore+=*/cms_fixtures/*
 map <Leader>c :Econtroller 
 "map <Leader>sc :RScontroller 
 map <Leader>vc :EVcontroller 
-map <Leader>m :Emodel 
+" commenting this so I can do the jump to middle of line see how that feels
+"map <Leader>m :Emodel 
 "map <Leader>sm :RSmodel 
 map <Leader>vm :EVmodel 
 
 map <Leader>bb :!bundle install<cr>
+
+nnoremap <Leader>m :call cursor(0, virtcol('$')/2)<CR>
+
 
 "git mappings
 "map <Leader>gs :Gstatus<CR>
@@ -213,6 +228,8 @@ set cursorline
 
 "status line highlight
 highlight StatusLine ctermfg=blue ctermbg=yellow
+
+
 
 "rounds to the nearest indent point 
 set shiftround
@@ -345,6 +362,8 @@ runtime macros/matchit.vim
 vmap <Leader>z :call I18nTranslateString()<CR>
 vmap <Leader>dt :call I18nDisplayTranslation()<CR>
 
+"Stack Overflow search shortcut
+nnoremap <Leader>o :StackOverflow 
 colorscheme ron
 
 "Insert new lines after current WITHOUT going into normal mode NOPE this broke quickfix
@@ -396,3 +415,9 @@ vmap <leader>x <Plug>SendSelectionToTmux<cr>
 
 let g:sql_type_default = 'pgsql'
 
+"return in normal mode inserts line
+nnoremap <Return> A<Return><Esc>
+
+" Delete all console.log
+" not using this yet but i like it
+"nnoremap <leader>dcl :g/.*console.log.*/d<cr>
