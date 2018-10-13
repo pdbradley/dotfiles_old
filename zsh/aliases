@@ -25,10 +25,12 @@ alias gphm='git push heroku master'
 alias js='jekyll serve'
 alias killruby='killall -9 ruby'
 alias killrudy='killall -9 ruby'
+alias killpuma='killall -9 puma'
 alias pc='production-console'
 alias rc='bin/rails console'
 alias remigrate='rake db:migrate && rake db:migrate:redo && rake db:schema:dump && rake db:test:prepare'
 alias rdm="bin/rake db:migrate"
+alias rdmt="RAILS_ENV=test bin/rake db:migrate"
 alias rrg="rake routes | grep "
 alias rdtp="bin/rake db:test:prepare"
 alias rs='bundle install && rails server -p 3000'

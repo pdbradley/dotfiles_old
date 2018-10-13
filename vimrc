@@ -416,7 +416,10 @@ vmap <leader>x <Plug>SendSelectionToTmux<cr>
 let g:sql_type_default = 'pgsql'
 
 "return in normal mode inserts line
+" this screws up the quickfix!! how to solve?
 nnoremap <Return> A<Return><Esc>
+" with this!!  yeah!
+autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 
 " Delete all console.log
 " not using this yet but i like it
