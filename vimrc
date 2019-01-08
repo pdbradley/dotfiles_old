@@ -1,7 +1,6 @@
 set nocompatible 
+
 filetype plugin indent on  "required!
-
-
 
 set exrc
 
@@ -35,6 +34,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 "my bundles here:
 "Plugin 'pdbradley/vim-rails-recent'
+Plugin 'elixir-editors/vim-elixir'
 Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'lambdatoast/elm.vim'
 Plugin 'tpope/vim-fugitive'
@@ -108,7 +108,7 @@ let g:rspec_command = ":silent !tmux send-keys -t 1 'clear' C-m 'bundle exec spr
 ":map <leader>j :cg quickfix.out \| cwindow<CR>
 map <leader>j :cg ~/quickfix.out \| cwindow<CR>
 
-map <leader>x :execute 'silent !tmux send-keys -t 1 ls C-m'<CR>
+map <leader>x :execute "silent !tmux send-keys -t 1 ls C-m "<CR>
 
 "disable folding by default
 set nofoldenable
@@ -145,6 +145,7 @@ set laststatus=2 " always show status line
 set smarttab
 set noincsearch
 set incsearch
+set nohlsearch   "no highlighting
 set guioptions-=m       " Can't remember :)
 set guioptions-=T       " No toolbars
 set guioptions-=r       " No scrollbars
