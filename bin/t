@@ -2,9 +2,14 @@
 
 
 working_directory=$PWD
-working_folder=${PWD##*/}
 
 
 if [[ $working_directory == *"task_warrior"* ]]; then
-  eval "task $@ +$working_folder"
+  working_folders=${PWD##*task_warrior}
+  folders_as_tags=${working_folders//\// \+}
+
+  #echo "task $@ +$working_folder ${#working_folder}"
+  #echo ${working_directory##*task_warrior}
+  #echo $folders_as_tags
+  eval "task $@ $folders_as_tags"
 fi
