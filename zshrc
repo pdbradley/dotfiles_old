@@ -27,6 +27,7 @@ export PKG_CONFIG_PATH="/usr/local/opt/pkg-config:$PKG_CONFIG_PATH"
 
 export EDITOR='vim'
 
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
 autoload -Uz compinit && compinit
 

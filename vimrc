@@ -103,6 +103,7 @@ map <Leader>s :call RunNearestSpec()<CR>:redraw!<CR>
 map <Leader>l :call RunLastSpec()<CR>:redraw!<CR>
 map <Leader>* :call RunAllSpecs()<CR>:redraw!<CR>
 let g:rspec_command = ":silent !tmux send-keys -t 1 'clear' C-m 'bundle exec spring rspec --format progress --require ~/code/rspec_support/quickfix_formatter.rb --format QuickfixFormatter --out ~/quickfix.out --order rand {spec}' C-m"
+"let g:rspec_command = ":silent !tmux send-keys -t 1 'clear' C-m 'NOT_HEADLESS=1 bundle exec spring rspec --format progress --require ~/code/rspec_support/quickfix_formatter.rb --format QuickfixFormatter --out ~/quickfix.out --order rand {spec}' C-m"
 
 " opens the quickfix file and window
 ":map <leader>j :cg quickfix.out \| cwindow<CR>
