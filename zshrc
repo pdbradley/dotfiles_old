@@ -16,7 +16,7 @@ function g {
 transfer() { if [ $# -eq 0 ]; then echo "No arguments specified. Usage:\necho transfer /tmp/test.md\ncat /tmp/test.md | transfer test.md"; return 1; fi 
   tmpfile=$( mktemp -t transferXXX ); if tty -s; then basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9._-]/-/g'); curl --progress-bar --upload-file "$1" "https://transfer.sh/$basefile" >> $tmpfile; else curl --progress-bar --upload-file "-" "https://transfer.sh/$1" >> $tmpfile ; fi; cat $tmpfile; rm -f $tmpfile; } 
 
-eval "$(rbenv init -)"
+#eval "$(rbenv init -)"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
@@ -54,6 +54,10 @@ if [ -f /Users/philipbradley/bin/google-cloud-sdk/path.zsh.inc ]; then
   source '/Users/philipbradley/bin/google-cloud-sdk/path.zsh.inc'
 fi
 
-source ~/bin/tmuxinator.zsh
+#source ~/bin/tmuxinator.zsh
 
 bindkey "^P" up-line-or-search
+
+. $HOME/.asdf/asdf.sh
+
+. $HOME/.asdf/completions/asdf.bash
