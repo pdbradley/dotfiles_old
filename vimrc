@@ -22,8 +22,8 @@ set noswapfile
 " If a file is changed outside of vim, automatically reload it without asking
 set autoread
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+set rtp+=~/.config/nvim/bundle/Vundle.vim
+call vundle#begin('~/.config/nvim/bundle')
 
 "Let Vundle manage Vundle
 "required
@@ -65,6 +65,8 @@ Plugin 'scrooloose/syntastic'
 Plugin 'kana/vim-fakeclip'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'mickaobrien/vim-stackoverflow'
+Plugin 'posva/vim-vue'
+
 
 "all this stuff below is for snippets
 Plugin 'MarcWeber/vim-addon-mw-utils'
