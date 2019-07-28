@@ -36,6 +36,12 @@ export PATH="$HOME/bin/jruby-9.1.2.0/bin:$PATH"
 
 export VMAIL_VIM="mvim"
 
+# for erlang / iex
+export ERL_AFLAGS="-kernel shell_history enabled"
+
+export PATH="$(brew --prefix qt@5.5)/bin:$PATH"
+
+
 
 source $HOME/dotfiles/zsh/prompt
 source $HOME/dotfiles/zsh/aliases
@@ -57,3 +63,5 @@ fi
 source ~/bin/tmuxinator.zsh
 
 bindkey "^P" up-line-or-search
+bindkey "^A" vi-beginning-of-line
+

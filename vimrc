@@ -177,6 +177,7 @@ map <leader>gl :CtrlP lib<cr>
 map <leader>gsc :CtrlP spec/controllers<cr>
 map <leader>gsm :CtrlP spec/models<cr>
 map <leader>gsf :CtrlP spec/features<cr>
+map <leader>gsr :CtrlP spec/requests<cr>
 
 map <leader>. :CtrlPTag<cr>
 
