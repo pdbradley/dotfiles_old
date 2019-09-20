@@ -40,10 +40,11 @@ Plugin 'lambdatoast/elm.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-rails.git'
-Plugin 'tpope/vim-projectionist.git'
+" Plugin 'tpope/vim-projectionist.git'
 Plugin 'vim-scripts/ReplaceWithRegister'
 Plugin 'kana/vim-textobj-user'
 Plugin 'nelstrom/vim-textobj-rubyblock'
@@ -64,7 +65,7 @@ Plugin 'vim-scripts/ZoomWin'
 Plugin 'scrooloose/syntastic'
 Plugin 'kana/vim-fakeclip'
 Plugin 'kchmck/vim-coffee-script'
-Plugin 'mickaobrien/vim-stackoverflow'
+" Plugin 'mickaobrien/vim-stackoverflow'
 Plugin 'posva/vim-vue'
 
 
@@ -174,6 +175,7 @@ map <leader>gv :CtrlP app/views<cr>
 map <leader>gf :CtrlP spec/factories<cr>
 map <leader>gc :CtrlP app/controllers<cr>
 map <leader>gm :CtrlP app/models<cr>
+map <leader>gj :CtrlP app/javascript<cr>
 map <leader>gh :CtrlPT app/helpers<cr>
 map <leader>gl :CtrlP lib<cr>
 map <leader>gsc :CtrlP spec/controllers<cr>

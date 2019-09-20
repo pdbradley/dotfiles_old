@@ -40,10 +40,6 @@ export VMAIL_VIM="mvim"
 # for erlang / iex
 export ERL_AFLAGS="-kernel shell_history enabled"
 
-export PATH="$(brew --prefix qt@5.5)/bin:$PATH"
-
-
-
 source $HOME/dotfiles/zsh/prompt
 source $HOME/dotfiles/zsh/aliases
 
@@ -70,3 +66,8 @@ bindkey "^A" vi-beginning-of-line
 . $HOME/.asdf/asdf.sh
 
 . $HOME/.asdf/completions/asdf.bash
+
+export PATH="$(brew --prefix qt@5.5)/bin:$PATH"
+
+# twilio autocomplete setup
+TWILIO_AC_ZSH_SETUP_PATH=/Users/philip/.twilio-cli/autocomplete/zsh_setup && test -f $TWILIO_AC_ZSH_SETUP_PATH && source $TWILIO_AC_ZSH_SETUP_PATH;
